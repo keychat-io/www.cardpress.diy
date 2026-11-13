@@ -48,6 +48,8 @@ The locally edited silent H.264 clips are 720 × 1558, 30 fps, yuv420p and fasts
 Both provide English and Chinese WebVTT tracks. The hero clip plays muted in a
 loop, with `preload="metadata"`, native pause controls and the page locale's
 captions selected by default. Reduced motion disables autoplay and pauses playback.
+Its rounded viewport crops the top 72 source pixels to hide the phone status bar
+while preserving the app navigation; the video and poster files remain unchanged.
 The separate action buttons, expanded demo dialog and visible editing note have
 been removed; the longer edited clip remains available as a bundled asset.
 The demo shows browsing, Passkey installation confirmation, NFC installation and

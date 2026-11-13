@@ -124,7 +124,7 @@ export const copy = {
     back: "返回 Learn",
     read: "开始了解",
     home: "首页",
-    rights: "CardPress。第三方名称与资料归各自权利人所有。",
+    rights: "© 2026 CardPress",
     learn: "Learn · 从这里开始",
   },
   en: {
@@ -256,8 +256,7 @@ export const copy = {
     back: "Back to Learn",
     read: "Explore",
     home: "Home",
-    rights:
-      "CardPress. Third-party names and materials belong to their respective owners.",
+    rights: "© 2026 CardPress",
     learn: "Learn · Start here",
   },
 };

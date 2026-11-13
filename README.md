@@ -101,6 +101,7 @@ require companion clients, and inclusion does not claim CardPress authorship.
 | `public/media/logo.png` | App repository `ios/CardPress/Assets.xcassets/Logo.imageset/Logo.png` | Existing CardPress brand artwork, copied unchanged |
 | `public/media/card-example.png` | App repository `JavaCardJ3R180.imageset/JavaCardJ3R180.png` | AI-processed appearance example; not a verified model photograph |
 | `public/assets/privacy.html` | [Keychat privacy policy](https://www.keychat.io/assets/privacy.html) | Unmodified downloaded HTML; accessible at `/assets/privacy.html`, with its original Keychat content |
+| `public/assets/terms_conditions.html` | [Keychat terms and conditions](https://www.keychat.io/assets/terms_conditions.html) | Unmodified downloaded HTML; accessible at `/assets/terms_conditions.html`, with its original Keychat content |
 
 The card example derives from the [FUTAKO supplier photograph](https://www.javacardsdk.com/wp-content/uploads/2016/08/JAVA-CARD-600x600.jpg),
 retrieved by the app project on November 5, 2026 and processed November 6, 2026.

@@ -11,30 +11,32 @@ const t = copy[lang];
 ---
 
 <Layout lang={lang} title={t.hero} description={t.intro}>
-  <section class="hero wrap">
-    <div class="hero-copy">
-      <p class="eyebrow">
-        <span class="dot"></span> {t.tagline}
-      </p>
-      <h1>
-        {t.heroLead}
-        <span class="hero-accent">{t.heroAccent}</span>
-      </h1>
-      <p class="lede">{t.intro}</p>
-      <div class="actions">
-        <a class="button primary" href="#download">
-          {t.ios}
-        </a>
-        <a class="button secondary" href="#download">
-          {t.android}
+  <section class="hero">
+    <div class="hero-content wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          <span class="dot"></span> {t.tagline}
+        </p>
+        <h1>
+          {t.heroLead}
+          <span class="hero-accent">{t.heroAccent}</span>
+        </h1>
+        <p class="lede">{t.intro}</p>
+        <div class="actions">
+          <a class="button primary" href="#download">
+            {t.ios}
+          </a>
+          <a class="button secondary" href="#download">
+            {t.android}
+          </a>
+        </div>
+        <a class="text-link" href="#scenarios">
+          {t.explore} <span aria-hidden="true">↓</span>
         </a>
       </div>
-      <a class="text-link" href="#scenarios">
-        {t.explore} <span aria-hidden="true">↓</span>
-      </a>
+      <Media lang={lang} />
+      <div class="hero-orbit" aria-hidden="true"></div>
     </div>
-    <Media lang={lang} />
-    <div class="hero-orbit" aria-hidden="true"></div>
   </section>
   <section class="section wrap" id="start">
     <div class="card-overview">

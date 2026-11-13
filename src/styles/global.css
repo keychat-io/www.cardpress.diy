@@ -159,12 +159,15 @@ a:hover {
 .hero {
   padding-top: 38px;
   padding-bottom: 64px;
+  position: relative;
+  isolation: isolate;
+}
+.hero-content {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 30px;
   align-items: center;
   position: relative;
-  isolation: isolate;
 }
 .hero:before {
   content: "";
@@ -903,9 +906,6 @@ dialog p {
   .header nav {
     gap: 18px;
   }
-  .hero {
-    gap: 30px;
-  }
   .scenarios {
     gap: 14px;
   }
@@ -962,9 +962,11 @@ dialog p {
     margin-left: auto;
   }
   .hero {
-    grid-template-columns: 1fr;
     padding-top: 24px;
     padding-bottom: 32px;
+  }
+  .hero-content {
+    grid-template-columns: 1fr;
     gap: 24px;
   }
   .hero:before {

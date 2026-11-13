@@ -450,10 +450,6 @@ figcaption {
   background: var(--ink);
   color: white;
 }
-.gallery-hint {
-  text-align: center;
-  font-size: 0.8rem;
-}
 .start-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -985,9 +981,6 @@ dialog p {
   }
   .screen-preview {
     min-height: 445px;
-  }
-  .gallery-hint {
-    font-size: 0.76rem;
   }
   .start-grid,
   .learn-strip,

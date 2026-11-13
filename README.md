@@ -14,6 +14,7 @@ npm run dev -- --port 4321
 npm run check
 npm run build
 npm run verify
+npm run verify:config
 npm run preview -- --port 4322
 ```
 

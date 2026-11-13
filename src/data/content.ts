@@ -2,7 +2,7 @@ export const languages = ["zh", "en"] as const;
 export type Language = (typeof languages)[number];
 export const copy = {
   zh: {
-    nav: ["使用场景", "App 界面", "Learn", "下载"],
+    nav: ["应用", "App 界面", "Learn", "下载"],
     skip: "跳到正文",
     tagline: "随身一张卡，开启更多可能",
     hero: "让一张卡，成为你的数字钥匙",
@@ -16,9 +16,19 @@ export const copy = {
     demoNote: "iPhone 17e 实录 · 英文界面",
     interfaceLanguage: "iPhone 17e 真实截图 · 英文界面 · 2026-11-13",
     photoAlt: "白色智能卡与金色接触芯片的外观示例，经过 AI 处理",
-    scenesTitle: "安全芯片，带来更多可能。",
+    scenesTitle: "一张卡，丰富的应用世界。",
     scenesIntro:
-      "Java Card 让 Applet 运行在卡片的安全芯片中。用 CardPress 安装和管理兼容应用，将硬件保护用于登录、二步验证与秘密存储。",
+      "从开源社区的现成应用，到自己开发的 Applet，用 CardPress 为兼容卡片扩展更多用途。",
+    appletPaths: [
+      [
+        "安装现成应用",
+        "从 CardPress 目录和开源社区选择兼容 Applet，按需安装到卡片。",
+      ],
+      [
+        "开发自己的应用",
+        "使用 Java Card 工具开发 Applet，再通过 CardPress 导入并安装。",
+      ],
+    ],
     scenarios: [
       {
         title: "Passkey 安全登录",
@@ -47,16 +57,15 @@ export const copy = {
         symbol: "◇",
       },
     ],
-    bundledTitle: "更多内置 Applet",
-    bundledNote: "按需安装到兼容卡片；部分应用需要配套客户端。",
+    bundledTitle: "部分内置应用",
     bundledApplets: [
-      ["CardStats", "检测卡片能力"],
-      ["Memory utility", "查看剩余空间"],
-      ["SmartPGP", "签名与加密 · RSA-2048 / 4096"],
-      ["Satochip", "比特币交易签名"],
-      ["Keycard", "卡片签名"],
-      ["Satodime", "持卡式密钥管理"],
-      ["Specter DIY", "助记词存储"],
+      "CardStats",
+      "Memory utility",
+      "SmartPGP",
+      "Satochip",
+      "Keycard",
+      "Satodime",
+      "Specter DIY",
     ],
     screensTitle: "你的卡片，一目了然。",
     screensIntro: "从了解一张卡，到发现新的可能，管理过程清楚、有序。",
@@ -142,7 +151,7 @@ export const copy = {
     learn: "Learn · 从这里开始",
   },
   en: {
-    nav: ["Use cases", "The app", "Learn", "Download"],
+    nav: ["Apps", "The app", "Learn", "Download"],
     skip: "Skip to content",
     tagline: "One card. Everyday possibilities.",
     hero: "Turn a card into your digital key.",
@@ -158,9 +167,19 @@ export const copy = {
       "Real iPhone 17e screenshots · English interface · 2026-11-13",
     photoAlt:
       "AI-processed appearance example of a white smart card with gold contacts",
-    scenesTitle: "A secure chip. Everyday possibilities.",
+    scenesTitle: "One card. A world of apps.",
     scenesIntro:
-      "Java Card runs applets on the card’s secure chip. Use CardPress to install and manage compatible apps, bringing hardware protection to sign-in, two-step verification and secret storage.",
+      "Explore an open ecosystem of ready-made Java Card apps, or develop your own applet. Bring more possibilities to a compatible card with CardPress.",
+    appletPaths: [
+      [
+        "Install ready-made apps",
+        "Choose compatible applets from the CardPress catalog or open-source community and install them on your card.",
+      ],
+      [
+        "Build your own app",
+        "Develop an applet with Java Card tools, then import and install it using CardPress.",
+      ],
+    ],
     scenarios: [
       {
         title: "Sign in with a passkey",
@@ -190,17 +209,15 @@ export const copy = {
         symbol: "◇",
       },
     ],
-    bundledTitle: "More bundled applets",
-    bundledNote:
-      "Install on a compatible card as needed; some apps require a companion client.",
+    bundledTitle: "A few included apps",
     bundledApplets: [
-      ["CardStats", "Card capability checks"],
-      ["Memory utility", "Free space reporting"],
-      ["SmartPGP", "Signing & encryption · RSA-2048 / 4096"],
-      ["Satochip", "Bitcoin transaction signing"],
-      ["Keycard", "Card-based signing"],
-      ["Satodime", "Bearer key management"],
-      ["Specter DIY", "Seed phrase storage"],
+      "CardStats",
+      "Memory utility",
+      "SmartPGP",
+      "Satochip",
+      "Keycard",
+      "Satodime",
+      "Specter DIY",
     ],
     screensTitle: "Your cards. Clearly organized.",
     screensIntro:

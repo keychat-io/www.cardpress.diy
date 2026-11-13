@@ -112,6 +112,14 @@ const t = copy[lang];
       <h2>{t.scenesTitle}</h2>
       <p>{t.scenesIntro}</p>
     </div>
+    <div class="applet-paths">
+      {t.appletPaths.map(([title, description]) => (
+        <div>
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
+      ))}
+    </div>
     <div class="scenarios">
       {t.scenarios.map((s, i) => (
         <article class={`scenario scene-${i}`}>
@@ -128,14 +136,8 @@ const t = copy[lang];
     </div>
     <div class="bundled-applets">
       <h3>{t.bundledTitle}</h3>
-      <p>{t.bundledNote}</p>
       <ul class="bundled-list">
-        {t.bundledApplets.map(([name, description]) => (
-          <li>
-            <strong>{name}</strong>
-            <span>{description}</span>
-          </li>
-        ))}
+        {t.bundledApplets.map((name) => <li>{name}</li>)}
       </ul>
     </div>
   </section>

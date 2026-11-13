@@ -1,20 +1,132 @@
 ---
-import {copy,type Language} from '../data/content';
-interface Props { lang: Language; screenshots?: { src: string; alt: string }[] }
-const {lang,screenshots=[]}=Astro.props; const t=copy[lang];
+import { copy, type Language } from "../data/content";
+interface Props {
+  lang: Language;
+  screenshots?: { src: string; alt: string }[];
+}
+const { lang, screenshots = [] } = Astro.props;
+const t = copy[lang];
 ---
+
 <div class="gallery" aria-label={t.nav[1]}>
-<div class="screen-track" tabindex="0" aria-label={t.galleryHint}>
-{t.screens.map((name,i)=><article class="screen-item" id={`screen-${i}`}><button class="screen-preview" data-preview={i} data-title={name} data-src={screenshots[i]?.src} data-alt={screenshots[i]?.alt} aria-label={`${t.zoom} ${name}`}><span class="screen-number">0{i+1}</span>{screenshots[i] ? <img class="app-capture" src={screenshots[i].src} alt={screenshots[i].alt} loading="lazy"/> : <><img src="/media/logo.png" width="64" height="64" alt="" loading="lazy"/><strong>{name}</strong><span>{t.pending}</span><small>{t.preview}</small></>}<span class="expand" aria-hidden="true">↗</span></button><p>{t.screenCaptions[i]}</p></article>)}
-</div><div class="gallery-controls" aria-label={lang==='zh'?'界面分页':'Preview pages'}>{t.screens.map((name,i)=><button data-page={i} aria-label={name}>{i+1}</button>)}</div><p class="muted gallery-hint">{t.galleryHint}</p>
-<dialog aria-labelledby="preview-title"><form method="dialog"><button class="dialog-close" aria-label={t.close}>{t.close} ×</button></form><img src="/media/logo.png" width="80" height="80" alt=""/><img class="dialog-capture" hidden alt=""/><h3 id="preview-title"></h3><div class="dialog-placeholder"><p>{t.pending}</p><p>{t.preview}</p></div></dialog>
+  <div class="screen-track" tabindex="0" aria-label={t.galleryHint}>
+    {t.screens.map((name, i) => (
+      <article class="screen-item" id={`screen-${i}`}>
+        <button
+          class="screen-preview"
+          data-preview={i}
+          data-title={name}
+          data-src={screenshots[i]?.src}
+          data-alt={screenshots[i]?.alt}
+          aria-label={`${t.zoom} ${name}`}
+        >
+          <span class="screen-number">0{i + 1}</span>
+          {screenshots[i] ? (
+            <img
+              class="app-capture"
+              src={screenshots[i].src}
+              alt={screenshots[i].alt}
+              loading="lazy"
+            />
+          ) : (
+            <>
+              <img
+                src="/media/logo.png"
+                width="64"
+                height="64"
+                alt=""
+                loading="lazy"
+              />
+              <strong>{name}</strong>
+              <span>{t.pending}</span>
+              <small>{t.preview}</small>
+            </>
+          )}
+          <span class="expand" aria-hidden="true">
+            ↗
+          </span>
+        </button>
+        <p>{t.screenCaptions[i]}</p>
+      </article>
+    ))}
+  </div>
+  <div
+    class="gallery-controls"
+    aria-label={lang === "zh" ? "界面分页" : "Preview pages"}
+  >
+    {t.screens.map((name, i) => (
+      <button data-page={i} aria-label={name}>
+        {i + 1}
+      </button>
+    ))}
+  </div>
+  <p class="muted gallery-hint">{t.galleryHint}</p>
+  <dialog aria-labelledby="preview-title">
+    <form method="dialog">
+      <button class="dialog-close" aria-label={t.close}>
+        {t.close} ×
+      </button>
+    </form>
+    <img src="/media/logo.png" width="80" height="80" alt="" />
+    <img class="dialog-capture" hidden alt="" />
+    <h3 id="preview-title"></h3>
+    <div class="dialog-placeholder">
+      <p>{t.pending}</p>
+      <p>{t.preview}</p>
+    </div>
+  </dialog>
 </div>
 <script>
-const gallery=document.querySelector('.gallery');
-if(gallery){
- const dialog=gallery.querySelector('dialog')!;
- gallery.querySelectorAll<HTMLButtonElement>('[data-preview]').forEach(button=>button.addEventListener('click',()=>{dialog.querySelector('h3')!.textContent=button.dataset.title||'';const capture=dialog.querySelector<HTMLImageElement>('.dialog-capture')!;capture.hidden=!button.dataset.src;dialog.querySelector<HTMLElement>('.dialog-placeholder')!.hidden=!!button.dataset.src;if(button.dataset.src){capture.src=button.dataset.src;capture.alt=button.dataset.alt||'';}else{capture.removeAttribute('src');}dialog.showModal();}));
- gallery.querySelectorAll<HTMLButtonElement>('[data-page]').forEach(button=>button.addEventListener('click',()=>{const item=gallery.querySelectorAll<HTMLElement>('.screen-item')[Number(button.dataset.page)];const track=gallery.querySelector('.screen-track')!;track.scrollTo({left:item.offsetLeft-(track as HTMLElement).offsetLeft,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}));
- dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
-}
+  const gallery = document.querySelector(".gallery");
+  if (gallery) {
+    const dialog = gallery.querySelector("dialog")!;
+    gallery
+      .querySelectorAll<HTMLButtonElement>("[data-preview]")
+      .forEach((button) =>
+        button.addEventListener("click", () => {
+          dialog.querySelector("h3")!.textContent = button.dataset.title || "";
+          const capture =
+            dialog.querySelector<HTMLImageElement>(".dialog-capture")!;
+          capture.hidden = !button.dataset.src;
+          dialog.querySelector<HTMLElement>(".dialog-placeholder")!.hidden =
+            !!button.dataset.src;
+          if (button.dataset.src) {
+            capture.src = button.dataset.src;
+            capture.alt = button.dataset.alt || "";
+          } else {
+            capture.removeAttribute("src");
+          }
+          dialog.showModal();
+        }),
+      );
+    gallery
+      .querySelectorAll<HTMLButtonElement>("[data-page]")
+      .forEach((button) =>
+        button.addEventListener("click", () => {
+          const item =
+            gallery.querySelectorAll<HTMLElement>(".screen-item")[
+              Number(button.dataset.page)
+            ];
+          const track = gallery.querySelector(".screen-track")!;
+          track.scrollTo({
+            left: item.offsetLeft - (track as HTMLElement).offsetLeft,
+            behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "instant"
+              : "smooth",
+          });
+        }),
+      );
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog) {
+        const r = dialog.getBoundingClientRect();
+        if (
+          event.clientX < r.left ||
+          event.clientX > r.right ||
+          event.clientY < r.top ||
+          event.clientY > r.bottom
+        )
+          dialog.close();
+      }
+    });
+  }
 </script>

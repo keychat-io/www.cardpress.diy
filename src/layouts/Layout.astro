@@ -1,23 +1,93 @@
 ---
-import '../styles/global.css';
-import { copy, type Language } from '../data/content';
-interface Props { lang: Language; title: string; description: string; path?: string }
-const {lang,title,description,path=''}=Astro.props;
-const t=copy[lang];
-const canonical=new URL(`/${lang}/${path}`,Astro.site);
-const indexable=import.meta.env.PUBLIC_INDEXABLE==='true' && Astro.site?.hostname !== 'cardpress.invalid';
+import "../styles/global.css";
+import { copy, type Language } from "../data/content";
+interface Props {
+  lang: Language;
+  title: string;
+  description: string;
+  path?: string;
+}
+const { lang, title, description, path = "" } = Astro.props;
+const t = copy[lang];
+const canonical = new URL(`/${lang}/${path}`, Astro.site);
+const indexable =
+  import.meta.env.PUBLIC_INDEXABLE === "true" &&
+  Astro.site?.hostname !== "cardpress.invalid";
 ---
-<!doctype html><html lang={lang==='zh'?'zh-Hans':'en'}><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>{title} · CardPress</title><meta name="description" content={description}/>
-<meta name="robots" content={indexable?'index,follow':'noindex,nofollow'}/>
-<link rel="canonical" href={canonical}/>
-{(['zh','en'] as const).map(l=><link rel="alternate" hreflang={l==='zh'?'zh-Hans':'en'} href={new URL(`/${l}/${path}`,Astro.site)}/>)}
-<link rel="alternate" hreflang="x-default" href={new URL(`/en/${path}`,Astro.site)}/>
-<meta property="og:type" content="website"/><meta property="og:title" content={`${title} · CardPress`}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={new URL('/media/logo.png',Astro.site)}/><meta property="og:image:alt" content="CardPress"/><meta property="og:locale" content={lang==='zh'?'zh_CN':'en_US'}/><meta name="theme-color" content="#0866ff"/><link rel="icon" href="/media/logo.png"/>
-</head><body>
-<a class="skip" href="#main">{t.skip}</a>
-<header class="header"><a class="brand" href={`/${lang}/`} aria-label="CardPress"><img src="/media/logo.png" width="38" height="38" alt=""/>CardPress</a><nav aria-label={lang==='zh'?'主导航':'Main navigation'}><a href={`/${lang}/#scenarios`}>{t.nav[0]}</a><a href={`/${lang}/#app`}>{t.nav[1]}</a><a href={`/${lang}/learn/`}>Learn</a><a class="nav-download" href={`/${lang}/#download`}>{t.nav[3]} <span aria-hidden="true">↗</span></a></nav><a class="language" href={`/${lang==='zh'?'en':'zh'}/${path}`} lang={lang==='zh'?'en':'zh-Hans'} aria-label={lang==='zh'?'Switch to English':'切换为简体中文'}>{lang==='zh'?'EN':'中文'}</a></header>
-<main id="main"><slot/></main>
-<footer><a class="brand" href={`/${lang}/`}><img src="/media/logo.png" width="32" height="32" alt=""/>CardPress</a><p>{t.footer}</p><small>{t.rights}</small></footer>
-</body></html>
+
+<!doctype html>
+<html lang={lang === "zh" ? "zh-Hans" : "en"}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · CardPress</title>
+    <meta name="description" content={description} />
+    <meta
+      name="robots"
+      content={indexable ? "index,follow" : "noindex,nofollow"}
+    />
+    <link rel="canonical" href={canonical} />
+    {(["zh", "en"] as const).map((l) => (
+      <link
+        rel="alternate"
+        hreflang={l === "zh" ? "zh-Hans" : "en"}
+        href={new URL(`/${l}/${path}`, Astro.site)}
+      />
+    ))}
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(`/en/${path}`, Astro.site)}
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${title} · CardPress`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta
+      property="og:image"
+      content={new URL("/media/logo.png", Astro.site)}
+    />
+    <meta property="og:image:alt" content="CardPress" />
+    <meta property="og:locale" content={lang === "zh" ? "zh_CN" : "en_US"} />
+    <meta name="theme-color" content="#0866ff" />
+    <link rel="icon" href="/media/logo.png" />
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      {t.skip}
+    </a>
+    <header class="header">
+      <a class="brand" href={`/${lang}/`} aria-label="CardPress">
+        <img src="/media/logo.png" width="38" height="38" alt="" />
+        CardPress
+      </a>
+      <nav aria-label={lang === "zh" ? "主导航" : "Main navigation"}>
+        <a href={`/${lang}/#scenarios`}>{t.nav[0]}</a>
+        <a href={`/${lang}/#app`}>{t.nav[1]}</a>
+        <a href={`/${lang}/learn/`}>Learn</a>
+        <a class="nav-download" href={`/${lang}/#download`}>
+          {t.nav[3]} <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+      <a
+        class="language"
+        href={`/${lang === "zh" ? "en" : "zh"}/${path}`}
+        lang={lang === "zh" ? "en" : "zh-Hans"}
+        aria-label={lang === "zh" ? "Switch to English" : "切换为简体中文"}
+      >
+        {lang === "zh" ? "EN" : "中文"}
+      </a>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer>
+      <a class="brand" href={`/${lang}/`}>
+        <img src="/media/logo.png" width="32" height="32" alt="" />
+        CardPress
+      </a>
+      <p>{t.footer}</p>
+      <small>{t.rights}</small>
+    </footer>
+  </body>
+</html>

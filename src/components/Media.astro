@@ -1,0 +1,9 @@
+---
+import {copy,type Language} from '../data/content';
+interface Props {lang:Language; src?:string; captions?:string}
+const {lang,src,captions}=Astro.props; const t=copy[lang];
+---
+<figure class="demo">
+{src && captions ? <video controls playsinline preload="metadata" poster="/media/card-example.png" aria-label={t.demo}><source src={src} type="video/mp4"/><track kind="captions" src={captions} srclang={lang} label={lang==='zh'?'简体中文':'English'} default/></video> : <div class="demo-cover"><img src="/media/card-example.png" alt={t.photoAlt} width="1200" height="900"/><div class="demo-label"><span class="eyebrow">{t.demo}</span><strong>{t.demoNote}</strong></div></div>}
+<figcaption>{t.photo} {!src && t.demoBody}</figcaption>
+</figure>

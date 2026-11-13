@@ -1,0 +1,15 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
+import Media from '../../components/Media.astro';
+import {languages,copy,articles,type Language} from '../../data/content';
+export function getStaticPaths(){return languages.map(lang=>({params:{lang}}));}
+const lang=Astro.params.lang as Language;const t=copy[lang];
+---
+<Layout lang={lang} title={t.hero} description={t.intro}>
+<section class="hero wrap"><div class="hero-copy"><p class="eyebrow"><span class="dot"></span> {t.tagline}</p><h1>{t.hero}</h1><p class="lede">{t.intro}</p><div class="actions"><a class="button primary" href="#download">{t.ios} <span aria-hidden="true">↗</span></a><a class="button secondary" href="#download">{t.android}</a></div><a class="text-link" href="#scenarios">{t.explore} <span aria-hidden="true">↓</span></a></div><Media lang={lang}/><div class="hero-orbit" aria-hidden="true"></div></section>
+<section class="section wrap" id="scenarios"><div class="section-heading"><p class="eyebrow">01 / {t.nav[0]}</p><h2>{t.scenesTitle}</h2><p>{t.scenesIntro}</p></div><div class="scenarios">{t.scenarios.map((s,i)=><article class={`scenario scene-${i}`}><div class="scene-art" aria-hidden="true"><span class="scene-symbol">{s.symbol}</span><span class="scene-token">{s.visual}</span></div><h3>{s.title}</h3><p class="benefit">{s.benefit}</p><p class="support">{s.detail}</p></article>)}</div></section>
+<section class="app-section section" id="app"><div class="wrap"><div class="section-heading centered"><p class="eyebrow">02 / {t.nav[1]}</p><h2>{t.screensTitle}</h2><p>{t.screensIntro}</p></div><Gallery lang={lang}/></div></section>
+<section class="section wrap" id="start"><div class="start-grid"><div><p class="eyebrow">03 / {lang==='zh'?'如何开始':'Getting started'}</p><h2>{t.startTitle}</h2><ol class="steps">{t.steps.map(([title,body])=><li><h3>{title}</h3><p>{body}</p></li>)}</ol></div><figure class="start-photo"><img src="/media/card-example.png" width="1200" height="900" alt={t.photoAlt} loading="lazy"/><figcaption>{t.photo}</figcaption><a class="text-link" href={`/${lang}/learn/getting-started/`}>{articles[1][lang].title} ↗</a><a class="text-link" href={`/${lang}/learn/java-card/`}>{articles[0][lang].title} ↗</a></figure></div><div class="learn-strip"><div><h3>{t.learnTitle}</h3><p>{t.learnIntro}</p></div><div class="learn-links">{articles.map((article,i)=><a href={`/${lang}/learn/${article.slug}/`}><span>0{i+1}</span>{article[lang].title}<span aria-hidden="true">↗</span></a>)}</div></div></section>
+<section class="download section" id="download"><div class="wrap"><div class="section-heading centered"><p class="eyebrow">04 / {t.nav[3]}</p><h2>{t.downloadTitle}</h2><p>{t.downloadIntro}</p></div><div class="download-options"><article><span class="platform">iOS</span><h3>{t.iosStatus}</h3><p>{t.iosBody}</p></article><article><span class="platform">Android</span><h3>{t.androidStatus}</h3><p>{t.androidBody}</p></article></div><div class="faq"><h3>{t.faqTitle}</h3>{t.faq.map(([q,a])=><details><summary>{q}</summary><p>{a}</p></details>)}</div></div></section>
+</Layout>

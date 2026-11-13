@@ -1,0 +1,7 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import {languages,copy,articles,type Language} from '../../../data/content';
+export function getStaticPaths(){return languages.map(lang=>({params:{lang}}));}
+const lang=Astro.params.lang as Language;const t=copy[lang];
+---
+<Layout lang={lang} title={t.learn} description={t.learnIntro} path="learn/"><section class="wrap learn-page"><p class="eyebrow">Learn</p><h1>{t.learnTitle}</h1><p class="lede">{t.learnIntro}</p><div class="article-cards">{articles.map((a,i)=><a href={`/${lang}/learn/${a.slug}/`}><span class="eyebrow">0{i+1}</span><h2>{a[lang].title}</h2><p>{a[lang].description}</p><span class="text-link">{t.read} ↗</span></a>)}</div></section></Layout>

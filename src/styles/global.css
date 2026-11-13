@@ -89,13 +89,13 @@ a:hover {
   margin: auto;
 }
 .header {
-  max-width: 1320px;
+  max-width: 1200px;
   min-height: 88px;
   margin: auto;
   display: flex;
   align-items: center;
   gap: 30px;
-  padding: 18px 36px;
+  padding: 18px 32px;
   position: relative;
   z-index: 5;
 }
@@ -112,8 +112,15 @@ a:hover {
   border-radius: 10px;
   object-fit: contain;
 }
+.header > .brand {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
 .header nav {
   display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   align-items: center;
   gap: 32px;
   margin-left: auto;
@@ -131,6 +138,8 @@ a:hover {
   color: white;
 }
 .language {
+  flex-shrink: 0;
+  white-space: nowrap;
   font-size: 0.85rem;
   font-weight: 700;
   border-left: 1px solid #ced5e2;
@@ -758,6 +767,9 @@ dialog p {
   display: inline-flex;
   align-items: center;
 }
+.header nav a {
+  white-space: nowrap;
+}
 
 /* Preserve every pixel of the real device captures, including system chrome. */
 .screen-preview:has(.app-capture) {
@@ -890,7 +902,6 @@ dialog p {
 }
 @media (max-width: 900px) {
   .header {
-    padding-inline: 24px;
     gap: 20px;
   }
   .header nav {

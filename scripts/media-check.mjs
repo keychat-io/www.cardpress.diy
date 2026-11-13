@@ -36,7 +36,7 @@ try {
       );
       assert.equal(
         await page.locator(".media-toggle").textContent(),
-        lang === "zh" ? "播放短片" : "Play short clip",
+        lang === "zh" ? "播放短片 · 约 9 秒" : "Play clip · ~9s",
       );
       await page.locator(".media-toggle").focus();
       await page.keyboard.press("Enter");
@@ -163,7 +163,7 @@ try {
         );
         await page.keyboard.press("Escape");
       }
-      await page.locator('[data-page="0"]').click();
+      if (width < 680) await page.locator('[data-page="0"]').click();
       await page.evaluate(() => scrollTo(0, 0));
       await page.screenshot({
         path: `docs_local/media-check/${lang}-${width}.png`,

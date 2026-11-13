@@ -70,7 +70,8 @@ h3 {
 button,
 a,
 summary {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: #0866ff18;
+  touch-action: manipulation;
 }
 a:focus-visible,
 button:focus-visible,
@@ -99,6 +100,7 @@ a:hover {
   z-index: 5;
 }
 .brand {
+  min-height: 44px;
   font-size: 1.4rem;
   font-weight: 750;
   display: flex;
@@ -146,11 +148,11 @@ a:hover {
   top: 12px;
 }
 .hero {
-  padding-top: 75px;
-  padding-bottom: 95px;
+  padding-top: 38px;
+  padding-bottom: 64px;
   display: grid;
-  grid-template-columns: 1.02fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
   align-items: center;
   position: relative;
   isolation: isolate;
@@ -158,10 +160,10 @@ a:hover {
 .hero:before {
   content: "";
   position: absolute;
-  inset: 0 -4% -10%;
+  inset: 0;
   background:
-    radial-gradient(ellipse at 85% 40%, #dfdeff 0, transparent 50%),
-    radial-gradient(ellipse at 40% 70%, #e3f8ee 0, transparent 55%);
+    radial-gradient(ellipse at 85% 40%, #e9e5ff 0, transparent 55%),
+    radial-gradient(ellipse at 45% 75%, #e8faf2 0, transparent 55%);
   z-index: -2;
   pointer-events: none;
 }
@@ -182,8 +184,22 @@ a:hover {
   margin-right: 6px;
 }
 .hero h1 {
-  margin-bottom: 25px;
+  margin-bottom: 24px;
+  font-size: clamp(2.8rem, 4.4vw, 4.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.045em;
 }
+.hero-accent {
+  display: block;
+  color: #2451ba;
+  background: linear-gradient(110deg, #075bd9, #6745ba);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-copy .lede {
+  max-width: 490px;
+}
+
 .lede {
   font-size: 1.15rem;
   line-height: 1.85;
@@ -225,47 +241,16 @@ a:hover {
   background: #ffffffb0;
 }
 .text-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: #0758d8;
   font-weight: 650;
   font-size: 0.95rem;
 }
 .demo {
   position: relative;
-  transform: rotate(2deg);
-}
-.demo-cover {
-  position: relative;
-  border: 8px solid #fff;
-  border-radius: 28px;
-  box-shadow: 0 28px 70px #2e428b20;
-  overflow: hidden;
-  background: #e5e9ee;
-}
-.demo-cover > img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-}
-.demo-label {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  right: 20px;
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-  background: #ffffffec;
-  padding: 18px;
-  border-radius: 17px;
-  backdrop-filter: blur(10px);
-}
-.demo-label .eyebrow {
-  margin: 0;
-  font-size: 0.7rem;
-}
-.demo-label strong {
-  font-size: 1.1rem;
+  min-width: 0;
 }
 figcaption {
   font-size: 0.73rem;
@@ -375,7 +360,7 @@ figcaption {
   color: var(--ink);
 }
 .support {
-  font-size: 0.84rem;
+  font-size: 0.9rem;
   margin-top: 16px;
   line-height: 1.8;
 }
@@ -448,7 +433,7 @@ figcaption {
   color: var(--ink);
 }
 .gallery-controls {
-  display: flex;
+  display: none;
   justify-content: center;
   gap: 10px;
   margin: 12px;
@@ -474,6 +459,20 @@ figcaption {
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+}
+.connection-note {
+  margin-top: 28px;
+  padding-left: 18px;
+  border-left: 3px solid #7dbeb0;
+}
+.connection-note p {
+  font-size: 0.85rem;
+}
+.connection-note .connection-path {
+  color: var(--ink);
+  font-weight: 650;
+  margin-bottom: 6px;
+  text-wrap: balance;
 }
 .steps {
   list-style: none;
@@ -509,10 +508,6 @@ figcaption {
 .start-photo img {
   border-radius: 24px;
 }
-.start-photo .text-link {
-  display: block;
-  margin-top: 15px;
-}
 .learn-strip {
   margin-top: 70px;
   border-top: 1px solid #dfe5ee;
@@ -533,7 +528,7 @@ figcaption {
   display: flex;
   gap: 20px;
   align-items: center;
-  min-height: 58px;
+  min-height: 48px;
   border-bottom: 1px solid #dfe5ee;
   font-weight: 600;
 }
@@ -561,13 +556,13 @@ figcaption {
   border: 1px solid #485574;
   border-radius: 24px;
   padding: 30px;
-  background: #ffffff06;
+  background: linear-gradient(145deg, #ffffff0d, #ffffff02);
 }
 .platform {
   display: block;
-  font-size: 1.75rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 .download-options h3 {
   font-size: 1.1rem;
@@ -588,6 +583,8 @@ figcaption {
   padding: 20px 0;
 }
 .faq summary {
+  min-height: 44px;
+  padding-block: 8px;
   cursor: pointer;
   font-weight: 600;
   line-height: 1.65;
@@ -685,6 +682,7 @@ footer small {
   text-underline-offset: 4px;
 }
 dialog {
+  overscroll-behavior: contain;
   border: 1px solid #d5dfef;
   border-radius: 28px;
   padding: 35px;
@@ -705,6 +703,7 @@ dialog p {
   margin-block: 18px;
 }
 .dialog-close {
+  min-height: 44px;
   display: block;
   margin-left: auto;
   background: #edf2ff;
@@ -713,9 +712,132 @@ dialog p {
   padding: 12px 18px;
   color: var(--ink);
 }
+[hidden] {
+  display: none !important;
+}
+.dialog-capture {
+  width: auto;
+  max-height: 70vh;
+  object-fit: contain;
+}
+.header nav a,
+.language {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Preserve every pixel of the real device captures, including system chrome. */
+.screen-preview:has(.app-capture) {
+  min-height: 0;
+  padding: 10px 7px;
+  border: 1px solid #53617c;
+  border-radius: 28px;
+  background: linear-gradient(150deg, #243454, #101c35);
+  overflow: visible;
+}
+.screen-preview .app-capture {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+.screen-preview:hover {
+  box-shadow: 0 24px 40px #20366830;
+}
+
+.screen-preview:has(.app-capture)::before {
+  display: none;
+}
+/* The rounded surround sits outside the uncropped screen. */
+.device-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  padding-block: 20px;
+}
+.device-stage::before,
+.device-stage::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: -1;
+}
+.device-stage::before {
+  inset: 13% 4% 12%;
+  border-radius: 40% 38% 32% 35%;
+  background: linear-gradient(145deg, #6697ff, #a595ec 65%, #b8d3ff);
+  transform: rotate(-8deg);
+}
+.device-stage::after {
+  width: 64%;
+  height: 35%;
+  right: 0;
+  bottom: 1%;
+  border-radius: 50%;
+  background: linear-gradient(130deg, #a2edd3, #d8fae9);
+  transform: rotate(-18deg);
+}
+.device-frame {
+  width: min(100%, 264px);
+  padding: 14px 10px;
+  border: 1px solid #53617c;
+  border-radius: 36px;
+  background: linear-gradient(145deg, #243454, #101c35);
+  box-shadow:
+    0 24px 42px #20366835,
+    inset 0 0 0 3px #ffffff10;
+}
+.device-frame video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 720 / 1558;
+  object-fit: contain;
+  background: #14234a;
+}
+.real-media > .eyebrow {
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.media-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.media-actions button {
+  color: var(--ink);
+  border: 1px solid #aebdd4;
+}
+.media-actions .primary {
+  color: white;
+}
+.video-dialog {
+  max-height: 92dvh;
+  overflow-y: auto;
+  width: min(92vw, 620px);
+  padding: 22px;
+}
+.video-dialog video {
+  max-height: 58dvh;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  background: #14234a;
+}
+.video-dialog p,
+.video-dialog summary {
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .hero-orbit {
-    animation: orbit 10s linear infinite;
+    animation: orbit 3s ease-out 1;
   }
   .hero-copy,
   .demo {
@@ -723,6 +845,19 @@ dialog p {
   }
   .demo {
     animation-delay: 0.1s;
+  }
+  .device-stage::before {
+    animation: stage-enter 1.1s ease-out both;
+  }
+  @keyframes stage-enter {
+    from {
+      opacity: 0;
+      transform: translateY(20px) rotate(-8deg) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) rotate(-8deg) scale(1);
+    }
   }
   @keyframes enter {
     from {
@@ -818,16 +953,16 @@ dialog p {
   }
   .hero {
     grid-template-columns: 1fr;
-    padding-top: 36px;
-    padding-bottom: 58px;
-    gap: 42px;
+    padding-top: 24px;
+    padding-bottom: 32px;
+    gap: 24px;
   }
   .hero:before {
     inset: 0;
   }
   .hero h1 {
     max-width: 500px;
-    font-size: clamp(2.65rem, 10vw, 3.7rem);
+    font-size: clamp(2.05rem, 8.2vw, 3.15rem);
   }
   .lede {
     font-size: 1rem;
@@ -840,9 +975,12 @@ dialog p {
     padding: 12px 18px;
   }
   .demo {
-    transform: rotate(1deg);
-    margin-inline: 4px;
+    margin-inline: 0;
   }
+  .gallery-controls {
+    display: flex;
+  }
+
   .hero-orbit {
     top: 0;
     right: 28px;
@@ -928,96 +1066,26 @@ dialog p {
     width: 100%;
     margin: 0;
   }
-  .demo-label {
-    padding: 13px;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
-  }
-}
-[hidden] {
-  display: none !important;
-}
-.screen-preview:has(.app-capture) {
-  padding: 0;
-  overflow: hidden;
-}
-.screen-preview .app-capture {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 24px;
-}
-.dialog-capture {
-  width: auto;
-  max-height: 70vh;
-  object-fit: contain;
-}
-.header nav a,
-.language {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-}
-.learn-links a {
-  min-height: 48px;
-}
 
-/* Preserve every pixel of the real device captures, including system chrome. */
-.screen-preview:has(.app-capture) {
-  min-height: 0;
-  border-radius: 26px;
-  overflow: visible;
-}
-.screen-preview:has(.app-capture)::before {
-  display: none;
-}
-.screen-preview .app-capture {
-  height: auto;
-  border-radius: 0;
-}
-.real-media,
-.hero .real-media {
-  transform: none;
-}
-.real-media > video {
-  width: min(100%, 260px);
-  height: auto;
-  margin-inline: auto;
-  object-fit: contain;
-  background: #14234a;
-  box-shadow: 0 20px 50px #20366820;
-}
-.real-media > .eyebrow {
-  text-align: center;
-  letter-spacing: 0.03em;
-}
-.media-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-.media-actions button {
-  border: 1px solid #aebdd4;
-}
-.video-dialog {
-  max-height: 92dvh;
-  overflow-y: auto;
-  width: min(92vw, 620px);
-  padding: 22px;
-}
-.video-dialog video {
-  max-height: 58dvh;
-  width: auto;
-  max-width: 100%;
-  margin-inline: auto;
-  object-fit: contain;
-  background: #14234a;
-}
-.video-dialog p,
-.video-dialog summary {
-  font-size: 0.85rem;
-  line-height: 1.7;
+  .device-stage {
+    padding-block: 12px;
+  }
+  .device-frame {
+    width: 180px;
+    border-radius: 26px;
+    padding: 10px 7px;
+  }
+  .real-media > .eyebrow {
+    font-size: 0.68rem;
+    margin-bottom: 8px;
+  }
+  .media-actions {
+    margin-top: 12px;
+    gap: 8px;
+  }
+  .media-actions .button {
+    font-size: 0.78rem;
+    padding: 10px 13px;
+    min-height: 44px;
+  }
 }

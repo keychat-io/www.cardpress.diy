@@ -31,7 +31,7 @@ for (const lang of ["zh", "en"])
         .locator('[data-preview="0"]')
         .evaluate((el) => el === document.activeElement),
     );
-    await page.locator('[data-page="2"]').click();
+    if (width < 680) await page.locator('[data-page="2"]').click();
     if (width < 680)
       await page.waitForFunction(
         () => document.querySelector(".screen-track").scrollLeft > 100,

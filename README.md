@@ -30,7 +30,11 @@ paging, dialog keyboard/focus, FAQ disclosure and reduced motion.
 Product copy is centralized in `src/data/content.ts`. The iOS and Android download
 areas intentionally show status rather than unverified store links. Verify official
 channels before replacing those statuses. Android remains a development preview;
-software implementation is distinct from physical-card qualification.
+software implementation is distinct from physical-card qualification. The Android
+baseline is Android 8.0 with NFC / IsoDep; a Pixel 8 basic card read reached Save
+Card, while authenticated inventory and writes still require designated-card
+acceptance. This engineering qualification detail is kept here rather than in the
+landing page's download requirements.
 
 Real iPhone 17e screenshots and a user-supplied screen recording were captured on
 2026-11-13. The approved `cards-en.png`, `card-detail-en.png` and `applets-en.png`

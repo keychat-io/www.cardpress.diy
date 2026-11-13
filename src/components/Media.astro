@@ -6,28 +6,32 @@ const t = copy[lang];
 
 <figure class="demo real-media">
   <p class="eyebrow">{t.demoNote}</p>
-  <video
-    id="hero-video"
-    controls
-    playsinline
-    preload="none"
-    width="720"
-    height="1558"
-    poster="/media/cardpress-17e-poster.jpg"
-    aria-label={t.demoNote}
-    aria-describedby="media-disclosure"
-  >
-    <source src="/media/cardpress-17e-hero.mp4" type="video/mp4" />
-    {(["zh", "en"] as const).map((language) => (
-      <track
-        kind="captions"
-        src={`/media/cardpress-17e-hero.${language}.vtt`}
-        srclang={language}
-        label={language === "zh" ? "简体中文" : "English"}
-        default={language === lang}
-      />
-    ))}
-  </video>
+  <div class="device-stage">
+    <div class="device-frame">
+      <video
+        id="hero-video"
+        controls
+        playsinline
+        preload="none"
+        width="720"
+        height="1558"
+        poster="/media/cardpress-17e-poster.jpg"
+        aria-label={t.demoNote}
+        aria-describedby="media-disclosure"
+      >
+        <source src="/media/cardpress-17e-hero.mp4" type="video/mp4" />
+        {(["zh", "en"] as const).map((language) => (
+          <track
+            kind="captions"
+            src={`/media/cardpress-17e-hero.${language}.vtt`}
+            srclang={language}
+            label={language === "zh" ? "简体中文" : "English"}
+            default={language === lang}
+          />
+        ))}
+      </video>
+    </div>
+  </div>
   <div class="media-actions">
     <button
       class="button secondary media-toggle"

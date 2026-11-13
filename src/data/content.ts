@@ -6,16 +6,18 @@ export const copy = {
     skip: "跳到正文",
     tagline: "随身一张卡，开启更多可能",
     hero: "让一张卡，成为你的数字钥匙",
+    heroLead: "让一张卡，",
+    heroAccent: "成为你的数字钥匙",
     intro:
-      "用 CardPress 连接兼容的 Java Card。让安全登录、二步验证与秘密存储，成为触手可及的日常。",
+      "用 CardPress 连接兼容的 Java Card，把安全登录、二步验证与秘密存储，带进日常。",
     ios: "iOS 下载状态",
     android: "Android 开发预览",
     explore: "看看它能做什么",
     demo: "17e 演示",
     demoNote: "iPhone 17e 实录 · 英文界面",
-    playVideo: "播放短片",
+    playVideo: "播放短片 · 约 9 秒",
     pauseVideo: "暂停短片",
-    openDemo: "观看完整演示",
+    openDemo: "安装演示 · 约 15 秒",
     mediaDisclosure: "无声实录，等待过程已剪短；剪辑时长不代表实际操作耗时。",
     transcript: "演示内容",
     mediaTranscript:
@@ -31,15 +33,14 @@ export const copy = {
         benefit: "登录时，把你的卡变成随身的安全钥匙。",
         visual: "Passkey",
         detail:
-          "需要兼容的 FIDO2 Applet，以及支持外置安全密钥的网站、系统和浏览器；安装后还需自检与 PIN 配置。",
+          "需兼容的 FIDO2 Applet、支持外置安全密钥的服务与设备，并完成自检和 PIN 设置。",
         symbol: "↗",
       },
       {
         title: "二步验证",
         benefit: "为重要账户，多加一道由你掌握的验证。",
         visual: "••• •••",
-        detail:
-          "兼容的 OATH / OTP Applet 配合 CardPress 的相关工具使用；账户服务也需支持相应验证方式。",
+        detail: "需兼容的 OATH / OTP Applet，以及支持相应验证方式的账户服务。",
         symbol: "✳",
       },
       {
@@ -47,7 +48,7 @@ export const copy = {
         benefit: "为重要秘密，准备一个可以握在手里的地方。",
         visual: "••••••••",
         detail:
-          "例如 SeedKeeper：需要配套 Applet 与客户端初始化和管理内容；目录收录与支持安装不代表 CardPress 内置完整密码库。",
+          "例如 SeedKeeper，需配套 Applet 与客户端来初始化、存取和管理秘密。",
         symbol: "◇",
       },
     ],
@@ -61,10 +62,13 @@ export const copy = {
     ],
     pending: "真实界面素材待补充",
     preview: "开发预览占位 · 非 App 截图",
-    galleryHint: "可横向滑动，或使用下方分页；点击截图放大查看。",
+    galleryHint: "点击截图放大；手机上可滑动或分页浏览。",
     close: "关闭",
     zoom: "查看",
     startTitle: "从一张卡开始。",
+    connection: "手机 / CardPress ⇄ NFC ⇄ Java Card",
+    connectionBody:
+      "手机为无源卡供电，并通过 NFC 发送请求，让卡片中的 Applet 完成操作。",
     steps: [
       [
         "准备兼容卡片",
@@ -83,12 +87,12 @@ export const copy = {
     learnIntro: "不用先成为智能卡专家。三条路径，按你的好奇心出发。",
     downloadTitle: "下一把数字钥匙，在你手里。",
     downloadIntro: "先确认设备与卡片，再开始使用。",
-    iosStatus: "iOS · 公开下载链接待确认",
+    iosStatus: "下载链接准备中",
     iosBody:
-      "iOS 18 或更新版本，支持 NFC 的 iPhone。此预览站尚未配置已核实的 App Store 或 TestFlight 链接。",
-    androidStatus: "Android · 开发预览",
+      "适用于支持 NFC 的 iPhone，需 iOS 18 或更新版本。公开下载渠道确认后将在这里提供。",
+    androidStatus: "开发预览 · 下载链接准备中",
     androidBody:
-      "最低 Android 8.0，需 NFC / IsoDep。Pixel 8 已完成基础读卡至保存卡片验证；认证清单与写卡仍待指定硬件验收，暂无已核实公开下载渠道。",
+      "需 Android 8.0 或更新版本及 NFC。目前为开发预览，下载链接确认后将在这里提供。",
     faqTitle: "开始之前，你可能想知道",
     faq: [
       [
@@ -125,16 +129,18 @@ export const copy = {
     skip: "Skip to content",
     tagline: "One card. Everyday possibilities.",
     hero: "Turn a card into your digital key.",
+    heroLead: "Turn a card into your ",
+    heroAccent: "digital key.",
     intro:
-      "Connect a compatible Java Card with CardPress. Bring secure sign-in, two-step verification and secret storage into everyday reach.",
+      "Connect a compatible Java Card with CardPress. Bring secure sign-in, two-step verification and secrets within reach.",
     ios: "iOS availability",
     android: "Android preview",
     explore: "Explore the possibilities",
     demo: "17e demo",
     demoNote: "Recorded on iPhone 17e · English interface",
-    playVideo: "Play short clip",
+    playVideo: "Play clip · ~9s",
     pauseVideo: "Pause short clip",
-    openDemo: "Watch the full demo",
+    openDemo: "Install demo · ~15s",
     mediaDisclosure:
       "Silent recording; waiting time shortened. Edited duration is not an operation-speed claim.",
     transcript: "What the demo shows",
@@ -155,7 +161,7 @@ export const copy = {
         benefit: "Make your card a security key you can carry.",
         visual: "Passkey",
         detail:
-          "Requires a compatible FIDO2 applet and a website, OS and browser that support external security keys. Complete the separate self-check and PIN setup after installation.",
+          "Requires a compatible FIDO2 applet, services and devices supporting external security keys, plus self-check and PIN setup.",
         symbol: "↗",
       },
       {
@@ -163,7 +169,7 @@ export const copy = {
         benefit: "Add another verification step to important accounts.",
         visual: "••• •••",
         detail:
-          "Use a compatible OATH / OTP applet with the relevant CardPress tools. The account service must support the corresponding verification method.",
+          "Requires a compatible OATH / OTP applet and an account service supporting that verification method.",
         symbol: "✳",
       },
       {
@@ -171,7 +177,7 @@ export const copy = {
         benefit: "Give important secrets a place you can hold.",
         visual: "••••••••",
         detail:
-          "For example, SeedKeeper requires its applet and a companion client for initialization and content management. Catalog inclusion and installation support do not mean a complete built-in CardPress password vault.",
+          "For example, SeedKeeper needs its applet and companion client to initialize, access and manage secrets.",
         symbol: "◇",
       },
     ],
@@ -187,10 +193,13 @@ export const copy = {
     pending: "Approved app capture needed",
     preview: "Development placeholder · not an app screenshot",
     galleryHint:
-      "Swipe horizontally or use the page controls. Select a screenshot to enlarge it.",
+      "Select a screenshot to enlarge it. On mobile, swipe or use the page controls.",
     close: "Close",
     zoom: "View",
     startTitle: "Start with one card.",
+    connection: "Phone / CardPress ⇄ NFC ⇄ Java Card",
+    connectionBody:
+      "Your phone powers the passive card and sends requests over NFC for its applet to handle.",
     steps: [
       [
         "Choose a compatible card",
@@ -210,12 +219,12 @@ export const copy = {
       "No smart-card expertise required. Follow your curiosity along three short paths.",
     downloadTitle: "Your next digital key starts here.",
     downloadIntro: "Check your phone and card before getting started.",
-    iosStatus: "iOS · Public link pending verification",
+    iosStatus: "Download link coming later",
     iosBody:
-      "iOS 18 or later on an NFC-capable iPhone. This preview site has no verified App Store or TestFlight link configured.",
-    androidStatus: "Android · Development preview",
+      "Requires an NFC-capable iPhone with iOS 18 or later. A verified public download channel will appear here.",
+    androidStatus: "Development preview · Link pending",
     androidBody:
-      "Android 8.0 minimum, with NFC / IsoDep. A Pixel 8 basic card read reached Save Card; authenticated inventory and writes still need designated hardware acceptance. No verified public download channel is available here.",
+      "Requires Android 8.0 or later and NFC. Currently a development preview; no public download is available here.",
     faqTitle: "Before you begin",
     faq: [
       [
@@ -388,7 +397,7 @@ export const articles = [
         ],
         [
           "区分三件事",
-          "被市场或目录收录、可由 CardPress 安装、可在 CardPress 内直接操作，是三种不同能力。以具体 Applet 的说明和经过验证的设备条件为准。",
+          "被目录收录、可由 CardPress 安装、可在 CardPress 内直接操作，是三种不同能力。例如 SeedKeeper 需要配套客户端，不代表 CardPress 内置完整密码库；以具体 Applet 的说明和已验证设备条件为准。",
         ],
       ],
     },
@@ -411,7 +420,7 @@ export const articles = [
         ],
         [
           "Keep three capabilities separate",
-          "Being listed in a catalog, being installable with CardPress and being directly usable inside CardPress are different capabilities. Follow the specific applet guidance and verified device conditions.",
+          "Catalog inclusion, installation with CardPress and direct use inside CardPress are different capabilities. For example, SeedKeeper needs a companion client; its listing does not mean a complete built-in CardPress password vault. Follow the applet guidance and verified device conditions.",
         ],
       ],
     },

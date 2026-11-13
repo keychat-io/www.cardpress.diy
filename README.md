@@ -99,6 +99,14 @@ Learn pages provide contextual links to Oracle, GlobalPlatform, FIDO Alliance,
 Apple Core NFC, Java Card Explorer, JCAlgTest and the CROCS curated list. Text is
 original concise paraphrase, not reproduced documentation. External references
 retain their own terms and licenses; no upstream code or course content is bundled.
-Explorer pages and JCAlgTest could not be fetched through the research browser at
-implementation time, so they are offered as further-reading destinations rather
-than evidence for detailed model or algorithm claims.
+The homepage card introduction follows the model/standards/OS/chip distinctions
+in [Java Card Explorer's cards page](https://java-card-explorer.vercel.app/cards),
+read in Chrome on November 13, 2026. Its scope is condensed to two educational
+examples, not a complete catalog or a CardPress compatibility allowlist. JCOP
+background was checked against the [NXP JCOP 4 overview](https://www.nxp.com/docs/en/brochure/JCOP4SECIDAPPA4.pdf)
+and the [JCOP 4.5 P71 security target](https://www.commoncriteriaportal.org/nfs/ccpfiles/files/epfiles/NSCIB-CC-0313985-STlite_v2.1.pdf).
+The J3R452 / JCOP 4.5 example was also checked against the
+[supplier's product page](https://www.javacardsdk.com/product/j3r452smartcard/).
+No memory capacity, algorithm guarantees or certification claims are inferred
+from a model name or appearance. Other Explorer pages and JCAlgTest remain
+further-reading destinations, not evidence for detailed model or algorithm claims.

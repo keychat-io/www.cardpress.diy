@@ -59,24 +59,41 @@ export const copy = {
     galleryHint: "点击截图放大；手机上可滑动或分页浏览。",
     close: "关闭",
     zoom: "查看",
-    startTitle: "从一张卡开始。",
-    connection: "手机 / CardPress ⇄ NFC ⇄ Java Card",
-    connectionBody:
-      "手机为无源卡供电，并通过 NFC 发送请求，让卡片中的 Applet 完成操作。",
-    steps: [
+    cardsTitle: "认识你的 Java Card。",
+    cardsIntro:
+      "以 NXP 的 J3R 系列为例，认识型号、系统与芯片，选择能自行安装应用的 NFC 开发卡。",
+    cardLayers: [
       [
-        "准备兼容卡片",
-        "选择支持 NFC、可以自行管理的 Java Card，并向供应商确认管理密钥和配置。",
+        "销售型号",
+        "J3R180 / J3R452",
+        "购买时看到的产品编号，对应具体接口与配置。",
       ],
       [
-        "下载 CardPress",
-        "先查看适用系统与当前发布状态，准备一部支持 NFC 的手机。",
+        "技术标准",
+        "Java Card · GlobalPlatform",
+        "分别定义应用运行与卡片管理的规范。",
       ],
       [
-        "配置需要的应用",
-        "按兼容性选择 Applet，完成安装及所需初始化，再用于你的日常场景。",
+        "卡片系统",
+        "JCOP",
+        "运行在芯片上，负责应用的安装、运行与隔离。",
+      ],
+      [
+        "安全芯片",
+        "SmartMX3",
+        "提供计算、存储与硬件保护，是卡片的基础。",
       ],
     ],
+    cardModelsTitle: "我们关注的卡片型号",
+    cardModelsIntro: "这两款卡均基于 NXP SmartMX3 安全芯片。",
+    cardModels: [
+      ["J3R180", "JCOP 4"],
+      ["J3R452", "JCOP 4.5"],
+    ],
+    cardChoiceTitle: "选能自行安装应用的开发卡。",
+    cardChoiceBody:
+      "向供应商确认 NFC 接口、管理权限和正确密钥。支付、身份等成品卡通常由发卡方管理；应用兼容性还需按具体配置与实卡能力确认。",
+    cardsMore: "在 Java Card Explorer 了解更多卡片",
     learnTitle: "了解一点，就能走得更远。",
     learnIntro: "不用先成为智能卡专家。三条路径，按你的好奇心出发。",
     downloadTitle: "下一把数字钥匙，在你手里。",
@@ -182,24 +199,41 @@ export const copy = {
       "Select a screenshot to enlarge it. On mobile, swipe or use the page controls.",
     close: "Close",
     zoom: "View",
-    startTitle: "Start with one card.",
-    connection: "Phone / CardPress ⇄ NFC ⇄ Java Card",
-    connectionBody:
-      "Your phone powers the passive card and sends requests over NFC for its applet to handle.",
-    steps: [
+    cardsTitle: "Meet your Java Card.",
+    cardsIntro:
+      "Using NXP’s J3R series as an example, understand the model, operating system and chip, then choose an NFC development card that lets you install your own apps.",
+    cardLayers: [
       [
-        "Choose a compatible card",
-        "Get an NFC-capable Java Card you can administer. Confirm management keys and configuration with its supplier.",
+        "Model",
+        "J3R180 / J3R452",
+        "The product identifier you buy, with a particular interface and configuration.",
       ],
       [
-        "Get CardPress",
-        "Check system requirements and current availability. Have an NFC-capable phone ready.",
+        "Standards",
+        "Java Card · GlobalPlatform",
+        "Define application execution and card management respectively.",
       ],
       [
-        "Set up your apps",
-        "Choose a compatible applet, install it and complete its initialization before using it day to day.",
+        "Card OS",
+        "JCOP",
+        "Runs on the chip and handles app installation, execution and isolation.",
+      ],
+      [
+        "Secure chip",
+        "SmartMX3",
+        "Provides computing, storage and hardware protection for the card.",
       ],
     ],
+    cardModelsTitle: "The card models we focus on",
+    cardModelsIntro: "Both models use NXP SmartMX3 secure chips.",
+    cardModels: [
+      ["J3R180", "JCOP 4"],
+      ["J3R452", "JCOP 4.5"],
+    ],
+    cardChoiceTitle: "Choose a card you can administer.",
+    cardChoiceBody:
+      "Confirm NFC, management access and the correct keys with the supplier. Payment and identity cards are usually managed by their issuer. App compatibility depends on the actual configuration and observed card capabilities.",
+    cardsMore: "Explore more cards on Java Card Explorer",
     learnTitle: "A little knowledge goes a long way.",
     learnIntro:
       "No smart-card expertise required. Follow your curiosity along three short paths.",

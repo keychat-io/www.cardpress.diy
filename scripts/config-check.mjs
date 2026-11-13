@@ -130,7 +130,16 @@ try {
       0,
       `${test.name}: isolated build failed\n${result.stderr}\n${result.stdout}`,
     );
-    const files = await htmlFiles(path.join(directory, "dist"));
+    const publicDirectory = path.join(directory, "public");
+    const distDirectory = path.join(directory, "dist");
+    const staticHTML = new Set(
+      (await htmlFiles(publicDirectory)).map((file) =>
+        path.relative(publicDirectory, file),
+      ),
+    );
+    const files = (await htmlFiles(distDirectory)).filter(
+      (file) => !staticHTML.has(path.relative(distDirectory, file)),
+    );
     assert.equal(files.length, 11);
     for (const file of files) {
       const html = await readFile(file, "utf8");

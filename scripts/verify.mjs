@@ -11,7 +11,18 @@ async function walk(dir) {
     )
   ).flat();
 }
-const files = (await walk(root)).filter((f) => f.endsWith(".html"));
+const publicRoot = path.resolve("public");
+const staticHTML = (await walk(publicRoot)).filter((f) => f.endsWith(".html"));
+const staticTargets = new Set();
+for (const file of staticHTML) {
+  const target = path.join(root, path.relative(publicRoot, file));
+  staticTargets.add(target);
+  const [source, built] = await Promise.all([readFile(file), readFile(target)]);
+  assert.deepEqual(built, source, `Static HTML changed during build: ${file}`);
+}
+const files = (await walk(root)).filter(
+  (f) => f.endsWith(".html") && !staticTargets.has(f),
+);
 for (const file of files) {
   const html = await readFile(file, "utf8");
   assert.match(html, /<h1[ >]/);
@@ -36,5 +47,5 @@ for (const file of files) {
 }
 assert.equal(files.length, 11);
 console.log(
-  `Verified ${files.length} generated HTML pages: local assets, anchors, language pairs and metadata.`,
+  `Verified ${files.length} generated HTML pages: local assets, anchors, language pairs and metadata; ${staticHTML.length} unchanged static HTML assets.`,
 );

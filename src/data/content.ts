@@ -60,7 +60,7 @@ export const copy = {
     zoom: "查看",
     cardsTitle: "认识你的 Java Card。",
     cardsIntro:
-      "以 NXP 的 J3R 系列为例，认识型号、系统与芯片，选择能自行安装应用的 NFC 开发卡。",
+      "Java Card 智能卡就像一台微型计算机：拥有处理器和存储空间，能运行 Applet，断电后仍能保留已保存的数据。",
     cardLayers: [
       [
         "销售型号",
@@ -92,7 +92,6 @@ export const copy = {
     cardChoiceTitle: "选能自行安装应用的开发卡。",
     cardChoiceBody:
       "向供应商确认 NFC 接口、管理权限和正确密钥。支付、身份等成品卡通常由发卡方管理；应用兼容性还需按具体配置与实卡能力确认。",
-    cardsMore: "在 Java Card Explorer 了解更多卡片",
     learnTitle: "了解一点，就能走得更远。",
     learnIntro: "不用先成为智能卡专家。三条路径，按你的好奇心出发。",
     downloadTitle: "下一把数字钥匙，在你手里。",
@@ -192,7 +191,7 @@ export const copy = {
     zoom: "View",
     cardsTitle: "Meet your Java Card.",
     cardsIntro:
-      "Using NXP’s J3R series as an example, understand the model, operating system and chip, then choose an NFC development card that lets you install your own apps.",
+      "A Java Card smart card is like a tiny computer: it has a processor and memory, runs applets, and retains saved data without power.",
     cardLayers: [
       [
         "Model",
@@ -224,7 +223,6 @@ export const copy = {
     cardChoiceTitle: "Choose a card you can administer.",
     cardChoiceBody:
       "Confirm NFC, management access and the correct keys with the supplier. Payment and identity cards are usually managed by their issuer. App compatibility depends on the actual configuration and observed card capabilities.",
-    cardsMore: "Explore more cards on Java Card Explorer",
     learnTitle: "A little knowledge goes a long way.",
     learnIntro:
       "No smart-card expertise required. Follow your curiosity along three short paths.",

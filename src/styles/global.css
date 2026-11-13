@@ -552,10 +552,6 @@ figcaption {
 .card-choice p {
   font-size: 0.9rem;
 }
-.card-choice .text-link {
-  gap: 8px;
-  margin-top: 12px;
-}
 .learn-strip {
   margin-top: 70px;
   border-top: 1px solid #dfe5ee;

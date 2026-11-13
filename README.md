@@ -38,8 +38,8 @@ landing page's download requirements.
 
 Real iPhone 17e screenshots and a user-supplied screen recording were captured on
 2026-11-13. The approved `cards-en.png`, `card-detail-en.png` and `applets-en.png`
-are genuine English UI captures (1170 × 2532), displayed without cropping on both
-locales with localized descriptions and an explicit English-interface label.
+are genuine English UI captures (1170 × 2532), displayed at their original aspect
+ratio with rounded corners on both locales, with localized image descriptions.
 No translated or AI-generated app UI is presented. The supplied assets were copied
 from the app repository's `.build/website-media-17e/` directory without modifying it.
 

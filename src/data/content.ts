@@ -12,9 +12,15 @@ export const copy = {
     android: "Android 开发预览",
     explore: "看看它能做什么",
     demo: "17e 演示",
-    demoNote: "演示视频准备中",
-    demoBody:
-      "正式演示素材尚未提供。这里先展示卡片外观，不提供虚假的播放操作。",
+    demoNote: "iPhone 17e 实录 · 英文界面",
+    playVideo: "播放短片",
+    pauseVideo: "暂停短片",
+    openDemo: "观看完整演示",
+    mediaDisclosure: "无声实录，等待过程已剪短；剪辑时长不代表实际操作耗时。",
+    transcript: "演示内容",
+    mediaTranscript:
+      "浏览卡片与 Applet，确认安装 Passkey，通过 NFC 安装并核验 Installed 结果，然后查看卡片能力和选择卡片外观。这是应用安装与管理演示，并非网站登录演示。",
+    interfaceLanguage: "iPhone 17e 真实截图 · 英文界面 · 2026-11-13",
     photo: "AI 处理的卡片外观示例，不代表已核实型号或兼容性。",
     photoAlt: "白色智能卡与金色接触芯片的外观示例，经过 AI 处理",
     scenesTitle: "小小一张卡，装下日常的安心。",
@@ -55,7 +61,7 @@ export const copy = {
     ],
     pending: "真实界面素材待补充",
     preview: "开发预览占位 · 非 App 截图",
-    galleryHint: "可横向滑动，或使用下方分页；点击预览卡片查看说明。",
+    galleryHint: "可横向滑动，或使用下方分页；点击截图放大查看。",
     close: "关闭",
     zoom: "查看",
     startTitle: "从一张卡开始。",
@@ -125,9 +131,17 @@ export const copy = {
     android: "Android preview",
     explore: "Explore the possibilities",
     demo: "17e demo",
-    demoNote: "Demo video coming later",
-    demoBody:
-      "The approved demo has not been supplied yet. This card image is a preview cover, with no simulated playback.",
+    demoNote: "Recorded on iPhone 17e · English interface",
+    playVideo: "Play short clip",
+    pauseVideo: "Pause short clip",
+    openDemo: "Watch the full demo",
+    mediaDisclosure:
+      "Silent recording; waiting time shortened. Edited duration is not an operation-speed claim.",
+    transcript: "What the demo shows",
+    mediaTranscript:
+      "Browse cards and applets, confirm Passkey installation, install over NFC and verify the Installed result, then inspect card capabilities and choose a card style. This demonstrates app installation and management, not website sign-in.",
+    interfaceLanguage:
+      "Real iPhone 17e screenshots · English interface · 2026-11-13",
     photo:
       "AI-processed appearance example; not verified model identification or compatibility evidence.",
     photoAlt:
@@ -173,7 +187,7 @@ export const copy = {
     pending: "Approved app capture needed",
     preview: "Development placeholder · not an app screenshot",
     galleryHint:
-      "Swipe horizontally or use the page controls. Select a preview card for details.",
+      "Swipe horizontally or use the page controls. Select a screenshot to enlarge it.",
     close: "Close",
     zoom: "View",
     startTitle: "Start with one card.",

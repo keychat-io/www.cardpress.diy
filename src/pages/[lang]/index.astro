@@ -60,7 +60,19 @@ const t = copy[lang];
         <h2>{t.screensTitle}</h2>
         <p>{t.screensIntro}</p>
       </div>
-      <Gallery lang={lang} />
+      <Gallery
+        lang={lang}
+        screenshots={[
+          "cards-en.png",
+          "card-detail-en.png",
+          "applets-en.png",
+        ].map((file, index) => ({
+          src: `/media/${file}`,
+          alt: `${t.screens[index]} · ${t.interfaceLanguage}`,
+          width: 1170,
+          height: 2532,
+        }))}
+      />
     </div>
   </section>
   <section class="section wrap" id="start">

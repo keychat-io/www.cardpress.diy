@@ -25,7 +25,7 @@ for (const lang of ["zh", "en"])
     await page.locator('[data-preview="0"]').focus();
     await page.keyboard.press("Enter");
     await page.locator("dialog[open]").waitFor();
-    await page.locator(".dialog-close").click();
+    await page.locator(".gallery .dialog-close").click();
     assert(
       await page
         .locator('[data-preview="0"]')
@@ -36,10 +36,10 @@ for (const lang of ["zh", "en"])
       await page.waitForFunction(
         () => document.querySelector(".screen-track").scrollLeft > 100,
       );
-    await page.locator("summary").first().click();
+    await page.locator(".faq summary").first().click();
     assert(
       await page
-        .locator("details")
+        .locator(".faq details")
         .first()
         .evaluate((el) => el.open),
     );
@@ -79,7 +79,7 @@ assert.equal(
     .evaluate((el) => getComputedStyle(el).scrollBehavior),
   "auto",
 );
-assert.equal(await page.locator("video").count(), 0);
+assert.equal(await page.locator("video[autoplay]").count(), 0);
 assert.equal(
   await page
     .locator('a[href*="apps.apple.com"],a[href*="play.google.com"]')

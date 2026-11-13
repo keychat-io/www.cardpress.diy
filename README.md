@@ -32,14 +32,40 @@ areas intentionally show status rather than unverified store links. Verify offic
 channels before replacing those statuses. Android remains a development preview;
 software implementation is distinct from physical-card qualification.
 
-The `17e` video and three approved, localized app screenshots have not been supplied.
-The site labels placeholders explicitly; they are not fabricated app UI or working
-playback. `Media.astro` accepts a local MP4 `src` plus a localized WebVTT `captions`
-file before it enables native playback. `Gallery.astro` accepts localized
-`screenshots` entries (`src`, `alt`) for actual captures, including modal enlargement.
-Verify capture build, language, consent and absence of keys, PINs, recovery material
-and private data before adding any screenshots. Keep the placeholder disclosure in
-sync when replacing media. No test recordings were copied or published.
+Real iPhone 17e screenshots and a user-supplied screen recording were captured on
+2026-11-13. The approved `cards-en.png`, `card-detail-en.png` and `applets-en.png`
+are genuine English UI captures (1170 × 2532), displayed without cropping on both
+locales with localized descriptions and an explicit English-interface label.
+No translated or AI-generated app UI is presented. The supplied assets were copied
+from the app repository's `.build/website-media-17e/` directory without modifying it.
+
+The locally edited silent H.264 clips are 720 × 1558, 30 fps, yuv420p and faststart:
+`cardpress-17e-hero.mp4` (8.5667 seconds) and `cardpress-17e-demo.mp4` (15.2667 seconds).
+Both provide English and Chinese WebVTT tracks, with the page locale selected by
+default. Playback is user-initiated, with `preload="none"`, native controls and no
+loop or autoplay; the hero also has an accessible play/pause button. Closing the
+expanded dialog pauses its video. Changing to reduced motion pauses playback.
+The demo shows browsing, Passkey installation confirmation, NFC installation and
+verified Installed status, card capabilities and card styling—not website login.
+Waiting time was shortened; the edited durations are not performance claims.
+
+Source ranges in seconds (start inclusive, end exclusive):
+
+- Demo: `[(0,.8),(14,16.5),(19,22),(23,24.5),(35.7,37.2),(50.8,53),(67.5,70),(72.4,73.7)]`.
+- Hero: `[(0,.8),(15.2,16.5),(35.7,37.2),(50.8,52.5),(68,70),(72.4,73.7)]`.
+
+The original user recording remains unchanged and uncommitted in ignored
+`docs_local/ScreenRecording_11-13-2026 10-00-25_1.MP4`. Only approved cuts, their
+poster, subtitle tracks and the three named screenshots are bundled. Candidate
+captures, technical reports and full card-ID settings are excluded. The coordinator
+reviewed the supplied final captures; website integration performed no phone or NFC
+operations. The separate AI card-example permission question below remains open.
+Download channels remain placeholders by user instruction.
+
+Run `PREVIEW_URL=http://127.0.0.1:4322 node scripts/media-check.mjs` for focused
+Chrome checks of localized media, aspect ratios, playback, captions, modal closure
+and reduced motion at desktop and narrow widths. Evidence is written to ignored
+`docs_local/media-check/`.
 
 ## Sources and asset provenance
 

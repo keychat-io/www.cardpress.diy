@@ -2,7 +2,7 @@
 import { copy, type Language } from "../data/content";
 interface Props {
   lang: Language;
-  screenshots?: { src: string; alt: string }[];
+  screenshots?: { src: string; alt: string; width: number; height: number }[];
 }
 const { lang, screenshots = [] } = Astro.props;
 const t = copy[lang];
@@ -20,12 +20,14 @@ const t = copy[lang];
           data-alt={screenshots[i]?.alt}
           aria-label={`${t.zoom} ${name}`}
         >
-          <span class="screen-number">0{i + 1}</span>
+          {!screenshots[i] && <span class="screen-number">0{i + 1}</span>}
           {screenshots[i] ? (
             <img
               class="app-capture"
               src={screenshots[i].src}
               alt={screenshots[i].alt}
+              width={screenshots[i].width}
+              height={screenshots[i].height}
               loading="lazy"
             />
           ) : (
@@ -42,9 +44,6 @@ const t = copy[lang];
               <small>{t.preview}</small>
             </>
           )}
-          <span class="expand" aria-hidden="true">
-            ↗
-          </span>
         </button>
         <p>{t.screenCaptions[i]}</p>
       </article>
@@ -60,6 +59,7 @@ const t = copy[lang];
       </button>
     ))}
   </div>
+  <p class="muted gallery-hint">{t.interfaceLanguage}</p>
   <p class="muted gallery-hint">{t.galleryHint}</p>
   <dialog aria-labelledby="preview-title">
     <form method="dialog">
@@ -67,8 +67,7 @@ const t = copy[lang];
         {t.close} ×
       </button>
     </form>
-    <img src="/media/logo.png" width="80" height="80" alt="" />
-    <img class="dialog-capture" hidden alt="" />
+    <img class="dialog-capture" width="1170" height="2532" hidden alt="" />
     <h3 id="preview-title"></h3>
     <div class="dialog-placeholder">
       <p>{t.pending}</p>

@@ -949,6 +949,7 @@ dialog p {
   border-radius: 24px;
 }
 .dialog-capture {
+  width: auto;
   max-height: 70vh;
   object-fit: contain;
 }
@@ -960,4 +961,63 @@ dialog p {
 }
 .learn-links a {
   min-height: 48px;
+}
+
+/* Preserve every pixel of the real device captures, including system chrome. */
+.screen-preview:has(.app-capture) {
+  min-height: 0;
+  border-radius: 26px;
+  overflow: visible;
+}
+.screen-preview:has(.app-capture)::before {
+  display: none;
+}
+.screen-preview .app-capture {
+  height: auto;
+  border-radius: 0;
+}
+.real-media,
+.hero .real-media {
+  transform: none;
+}
+.real-media > video {
+  width: min(100%, 260px);
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
+  background: #14234a;
+  box-shadow: 0 20px 50px #20366820;
+}
+.real-media > .eyebrow {
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.media-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.media-actions button {
+  border: 1px solid #aebdd4;
+}
+.video-dialog {
+  max-height: 92dvh;
+  overflow-y: auto;
+  width: min(92vw, 620px);
+  padding: 22px;
+}
+.video-dialog video {
+  max-height: 58dvh;
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+  object-fit: contain;
+  background: #14234a;
+}
+.video-dialog p,
+.video-dialog summary {
+  font-size: 0.85rem;
+  line-height: 1.7;
 }

@@ -797,10 +797,6 @@ dialog p {
   object-fit: contain;
   background: #14234a;
 }
-.real-media > .eyebrow {
-  text-align: center;
-  letter-spacing: 0.03em;
-}
 @media (prefers-reduced-motion: no-preference) {
   .hero-orbit {
     animation: orbit 3s ease-out 1;
@@ -1040,9 +1036,5 @@ dialog p {
     width: 180px;
     border-radius: 26px;
     padding: 10px 7px;
-  }
-  .real-media > .eyebrow {
-    font-size: 0.68rem;
-    margin-bottom: 8px;
   }
 }

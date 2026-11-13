@@ -18,8 +18,9 @@ export const copy = {
     interfaceLanguage: "iPhone 17e 真实截图 · 英文界面 · 2026-11-13",
     photo: "AI 处理的卡片外观示例，不代表已核实型号或兼容性。",
     photoAlt: "白色智能卡与金色接触芯片的外观示例，经过 AI 处理",
-    scenesTitle: "小小一张卡，装下日常的安心。",
-    scenesIntro: "从你想做的事开始，为卡片选择合适的应用。",
+    scenesTitle: "安全芯片，带来更多可能。",
+    scenesIntro:
+      "Java Card 让 Applet 运行在卡片的安全芯片中。用 CardPress 安装和管理兼容应用，将硬件保护用于登录、二步验证与秘密存储。",
     scenarios: [
       {
         title: "Passkey 安全登录",
@@ -137,9 +138,9 @@ export const copy = {
       "AI-processed appearance example; not verified model identification or compatibility evidence.",
     photoAlt:
       "AI-processed appearance example of a white smart card with gold contacts",
-    scenesTitle: "A little card. A little more peace of mind.",
+    scenesTitle: "A secure chip. Everyday possibilities.",
     scenesIntro:
-      "Start with what you want to do. Choose the right applet for your card.",
+      "Java Card runs applets on the card’s secure chip. Use CardPress to install and manage compatible apps, bringing hardware protection to sign-in, two-step verification and secret storage.",
     scenarios: [
       {
         title: "Sign in with a passkey",

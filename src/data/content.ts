@@ -22,6 +22,7 @@ export const copy = {
     scenarios: [
       {
         title: "Passkey 安全登录",
+        applet: "Passkey (FIDO2)",
         benefit: "登录时，把你的卡变成随身的安全钥匙。",
         visual: "Passkey",
         detail:
@@ -30,6 +31,7 @@ export const copy = {
       },
       {
         title: "二步验证",
+        applet: "VivoKey OTP",
         benefit: "为重要账户，多加一道由你掌握的验证。",
         visual: "••• •••",
         detail: "需兼容的 OATH / OTP Applet，以及支持相应验证方式的账户服务。",
@@ -37,12 +39,24 @@ export const copy = {
       },
       {
         title: "密码与秘密存储",
+        applet: "SeedKeeper",
         benefit: "为重要秘密，准备一个可以握在手里的地方。",
         visual: "••••••••",
         detail:
           "例如 SeedKeeper，需配套 Applet 与客户端来初始化、存取和管理秘密。",
         symbol: "◇",
       },
+    ],
+    bundledTitle: "更多内置 Applet",
+    bundledNote: "按需安装到兼容卡片；部分应用需要配套客户端。",
+    bundledApplets: [
+      ["CardStats", "检测卡片能力"],
+      ["Memory utility", "查看剩余空间"],
+      ["SmartPGP", "签名与加密 · RSA-2048 / 4096"],
+      ["Satochip", "比特币交易签名"],
+      ["Keycard", "卡片签名"],
+      ["Satodime", "持卡式密钥管理"],
+      ["Specter DIY", "助记词存储"],
     ],
     screensTitle: "你的卡片，一目了然。",
     screensIntro: "从了解一张卡，到发现新的可能，管理过程清楚、有序。",
@@ -150,6 +164,7 @@ export const copy = {
     scenarios: [
       {
         title: "Sign in with a passkey",
+        applet: "Passkey (FIDO2)",
         benefit: "Make your card a security key you can carry.",
         visual: "Passkey",
         detail:
@@ -158,6 +173,7 @@ export const copy = {
       },
       {
         title: "Two-step verification",
+        applet: "VivoKey OTP",
         benefit: "Add another verification step to important accounts.",
         visual: "••• •••",
         detail:
@@ -166,12 +182,25 @@ export const copy = {
       },
       {
         title: "Passwords & secrets",
+        applet: "SeedKeeper",
         benefit: "Give important secrets a place you can hold.",
         visual: "••••••••",
         detail:
           "For example, SeedKeeper needs its applet and companion client to initialize, access and manage secrets.",
         symbol: "◇",
       },
+    ],
+    bundledTitle: "More bundled applets",
+    bundledNote:
+      "Install on a compatible card as needed; some apps require a companion client.",
+    bundledApplets: [
+      ["CardStats", "Card capability checks"],
+      ["Memory utility", "Free space reporting"],
+      ["SmartPGP", "Signing & encryption · RSA-2048 / 4096"],
+      ["Satochip", "Bitcoin transaction signing"],
+      ["Keycard", "Card-based signing"],
+      ["Satodime", "Bearer key management"],
+      ["Specter DIY", "Seed phrase storage"],
     ],
     screensTitle: "Your cards. Clearly organized.",
     screensIntro:

@@ -120,10 +120,23 @@ const t = copy[lang];
             <span class="scene-token">{s.visual}</span>
           </div>
           <h3>{s.title}</h3>
+          <p class="scenario-applet">{s.applet}</p>
           <p class="benefit">{s.benefit}</p>
           <p class="support">{s.detail}</p>
         </article>
       ))}
+    </div>
+    <div class="bundled-applets">
+      <h3>{t.bundledTitle}</h3>
+      <p>{t.bundledNote}</p>
+      <ul class="bundled-list">
+        {t.bundledApplets.map(([name, description]) => (
+          <li>
+            <strong>{name}</strong>
+            <span>{description}</span>
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
   <section class="download section" id="download">

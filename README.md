@@ -92,6 +92,9 @@ localization. System minima were checked against native project configuration.
 That repository was read only. App catalog inclusion, installation support and
 built-in app operations are described separately. Referenced organizations are not
 presented as partners or certification bodies for CardPress.
+Homepage applet examples follow the bundled catalog, with the two SmartPGP
+variants grouped for presentation. They are not preinstalled card apps; some
+require companion clients, and inclusion does not claim CardPress authorship.
 
 | Local asset | Source | Status |
 | --- | --- | --- |

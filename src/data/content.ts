@@ -98,12 +98,6 @@ export const copy = {
     learnIntro: "不用先成为智能卡专家。三条路径，按你的好奇心出发。",
     downloadTitle: "下一把数字钥匙，在你手里。",
     downloadIntro: "先确认设备与卡片，再开始使用。",
-    iosStatus: "下载链接准备中",
-    iosBody:
-      "适用于支持 NFC 的 iPhone，需 iOS 18 或更新版本。公开下载渠道确认后将在这里提供。",
-    androidStatus: "开发预览 · 下载链接准备中",
-    androidBody:
-      "需 Android 8.0 或更新版本及 NFC。目前为开发预览，下载链接确认后将在这里提供。",
     faqTitle: "开始之前，你可能想知道",
     faq: [
       [
@@ -239,12 +233,6 @@ export const copy = {
       "No smart-card expertise required. Follow your curiosity along three short paths.",
     downloadTitle: "Your next digital key starts here.",
     downloadIntro: "Check your phone and card before getting started.",
-    iosStatus: "Download link coming later",
-    iosBody:
-      "Requires an NFC-capable iPhone with iOS 18 or later. A verified public download channel will appear here.",
-    androidStatus: "Development preview · Link pending",
-    androidBody:
-      "Requires Android 8.0 or later and NFC. Currently a development preview; no public download is available here.",
     faqTitle: "Before you begin",
     faq: [
       [

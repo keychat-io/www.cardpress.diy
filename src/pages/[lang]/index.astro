@@ -156,16 +156,12 @@ const t = copy[lang];
         <p>{t.downloadIntro}</p>
       </div>
       <div class="download-options">
-        <article>
-          <span class="platform">iOS</span>
-          <h3>{t.iosStatus}</h3>
-          <p>{t.iosBody}</p>
-        </article>
-        <article>
-          <span class="platform">Android</span>
-          <h3>{t.androidStatus}</h3>
-          <p>{t.androidBody}</p>
-        </article>
+        <button class="button download-button" type="button" disabled>
+          {t.ios}
+        </button>
+        <button class="button download-button" type="button" disabled>
+          {t.android}
+        </button>
       </div>
       <div class="faq">
         <h3>{t.faqTitle}</h3>

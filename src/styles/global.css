@@ -587,28 +587,20 @@ figcaption {
   color: #c4cee2;
 }
 .download-options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 }
-.download-options article {
-  border: 1px solid #485574;
-  border-radius: 24px;
-  padding: 30px;
-  background: linear-gradient(145deg, #ffffff0d, #ffffff02);
-}
-.platform {
-  display: block;
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
-.download-options h3 {
-  font-size: 1.1rem;
-  margin-bottom: 14px;
-}
-.download-options p {
-  font-size: 0.9rem;
+.download-button:disabled {
+  width: 240px;
+  max-width: 100%;
+  min-height: 64px;
+  border: 1px solid #657084;
+  background: #3e495f;
+  color: #c6cdd9;
+  cursor: not-allowed;
+  transform: none;
 }
 .faq {
   max-width: 800px;
@@ -1028,7 +1020,6 @@ dialog p {
   .card-overview,
   .card-choice,
   .learn-strip,
-  .download-options,
   .article-cards {
     grid-template-columns: 1fr;
   }
@@ -1050,9 +1041,6 @@ dialog p {
   .learn-strip {
     margin-top: 44px;
     gap: 24px;
-  }
-  .download-options article {
-    padding: 25px;
   }
   .faq {
     margin-top: 44px;

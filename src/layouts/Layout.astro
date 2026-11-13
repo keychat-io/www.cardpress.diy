@@ -13,6 +13,14 @@ const canonical = new URL(`/${lang}/${path}`, Astro.site);
 const indexable =
   import.meta.env.PUBLIC_INDEXABLE === "true" &&
   Astro.site?.hostname !== "cardpress.invalid";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "CardPress",
+  url: new URL("/", Astro.site).href,
+  inLanguage: ["zh-Hans", "en"],
+  description: copy.en.intro,
+};
 ---
 
 <!doctype html>
@@ -51,6 +59,11 @@ const indexable =
     <meta property="og:locale" content={lang === "zh" ? "zh_CN" : "en_US"} />
     <meta name="theme-color" content="#0866ff" />
     <link rel="icon" href="/media/logo.png" />
+    <link rel="describedby" href="/llms.txt" type="text/plain" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")}
+    />
   </head>
   <body>
     <a class="skip" href="#main">
@@ -90,6 +103,23 @@ const indexable =
       </a>
       <p>{t.footer}</p>
       <small>{t.rights}</small>
+      <nav
+        class="footer-references"
+        aria-label={lang === "zh" ? "政策" : "Policies"}
+      >
+        <ul>
+          <li>
+            <a href="/assets/privacy.html" lang="en">
+              {lang === "zh" ? "隐私政策" : "Privacy policy"}
+            </a>
+          </li>
+          <li>
+            <a href="/assets/terms_conditions.html" lang="en">
+              {lang === "zh" ? "使用条款" : "Terms of use"}
+            </a>
+          </li>
+        </ul>
+      </nav>
       <nav class="footer-references" aria-label={t.referencesLabel}>
         <span>{t.referencesLabel}</span>
         <ul>

@@ -1,0 +1,6 @@
+[Unit]
+Description=Renew the CardPress TLS certificate
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/certbot renew --cert-name cardpress.diy --quiet --deploy-hook "/usr/sbin/nginx -t && /usr/bin/systemctl reload nginx"

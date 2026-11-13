@@ -172,9 +172,16 @@ try {
     const locations = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(
       (match) => match[1],
     );
-    assert.equal(locations.length, 10);
+    assert.equal(locations.length, 12);
     for (const location of locations)
       assert.equal(new URL(location).origin, test.origin);
+    const agentIndex = await readFile(
+      path.join(distDirectory, "llms.txt"),
+      "utf8",
+    );
+    assert.match(agentIndex, /^# CardPress\n/);
+    for (const match of agentIndex.matchAll(/\]\((https?:\/\/[^)]+)\)/g))
+      assert.equal(new URL(match[1]).origin, test.origin);
     const robots = await readFile(
       path.join(directory, "dist/robots.txt"),
       "utf8",
@@ -186,7 +193,7 @@ try {
         : "User-agent: *\nDisallow: /\n",
     );
     console.log(
-      `PASS ${test.name}: 11 pages, all SEO origins, 10 sitemap URLs and indexing policy`,
+      `PASS ${test.name}: 11 pages, all SEO origins, 12 sitemap URLs, agent index and indexing policy`,
     );
   }
 } finally {

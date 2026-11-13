@@ -96,18 +96,18 @@ Homepage applet examples follow the bundled catalog, with the two SmartPGP
 variants grouped for presentation. They are not preinstalled card apps; some
 require companion clients, and inclusion does not claim CardPress authorship.
 
-| Local asset | Source | Status |
-| --- | --- | --- |
-| `public/media/logo.png` | App repository `ios/CardPress/Assets.xcassets/Logo.imageset/Logo.png` | Existing CardPress brand artwork, copied unchanged |
-| `public/media/card-example.png` | App repository `JavaCardJ3R180.imageset/JavaCardJ3R180.png` | AI-processed appearance example; not a verified model photograph |
-| `public/assets/privacy.html` | [Keychat privacy policy](https://www.keychat.io/assets/privacy.html) | Unmodified downloaded HTML; accessible at `/assets/privacy.html`, with its original Keychat content |
-| `public/assets/terms_conditions.html` | [Keychat terms and conditions](https://www.keychat.io/assets/terms_conditions.html) | Unmodified downloaded HTML; accessible at `/assets/terms_conditions.html`, with its original Keychat content |
+| Local asset                           | Source                                                                            | Status                                                                                      |
+| ------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `public/media/logo.png`               | App repository `ios/CardPress/Assets.xcassets/Logo.imageset/Logo.png`             | Existing CardPress brand artwork, copied unchanged                                          |
+| `public/media/card-example.png`       | App repository `JavaCardJ3R180.imageset/JavaCardJ3R180.png`                       | AI-processed appearance example; not a verified model photograph                            |
+| `public/assets/privacy.html`          | Initially based on the Keychat policy; adapted for CardPress on November 13, 2026 | Public policy covering local app data, website delivery and support; `/assets/privacy.html` |
+| `public/assets/terms_conditions.html` | Initially based on the Keychat terms; adapted for CardPress on November 13, 2026  | Card operations, compatibility and third-party rights; `/assets/terms_conditions.html`      |
 
 The card example derives from the [FUTAKO supplier photograph](https://www.javacardsdk.com/wp-content/uploads/2016/08/JAVA-CARD-600x600.jpg),
 retrieved by the app project on November 5, 2026 and processed November 6, 2026.
 Original derivative SHA-256: `087bea1ba37940b8f45cad0ce2d26aabc2e8b9ce1dfb16563977251a5d3c8260`.
 No explicit redistribution license was found in the app's attribution record;
-confirm permission before public publication or replace with owned photography.
+the project owner chose to retain the current image for this publication.
 No ownership or new license is asserted over third-party artwork.
 
 Learn pages provide contextual links to Oracle, GlobalPlatform, FIDO Alliance,

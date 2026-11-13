@@ -1,0 +1,14 @@
+/var/log/cardpress/*.log {
+    daily
+    rotate 7
+    maxage 7
+    missingok
+    notifempty
+    compress
+    delaycompress
+    create 0640 nginx root
+    sharedscripts
+    postrotate
+        /bin/kill -USR1 $(cat /run/nginx.pid 2>/dev/null) 2>/dev/null || true
+    endscript
+}

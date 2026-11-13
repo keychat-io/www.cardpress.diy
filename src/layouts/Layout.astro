@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { copy, type Language } from "../data/content";
+import { copy, references, type Language } from "../data/content";
 interface Props {
   lang: Language;
   title: string;
@@ -89,6 +89,14 @@ const indexable =
       </a>
       <p>{t.footer}</p>
       <small>{t.rights}</small>
+      <nav class="footer-references" aria-label={t.referencesLabel}>
+        <span>{t.referencesLabel}</span>
+        <ul>
+          {references.map(([label, href]) => (
+            <li><a href={href}>{label}</a></li>
+          ))}
+        </ul>
+      </nav>
     </footer>
   </body>
 </html>

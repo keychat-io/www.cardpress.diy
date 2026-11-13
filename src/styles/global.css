@@ -552,37 +552,6 @@ figcaption {
 .card-choice p {
   font-size: 0.9rem;
 }
-.learn-strip {
-  margin-top: 70px;
-  border-top: 1px solid #dfe5ee;
-  padding-top: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-}
-.learn-strip p {
-  font-size: 0.93rem;
-  margin-top: 12px;
-}
-.learn-links {
-  display: grid;
-  gap: 10px;
-}
-.learn-links a {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  min-height: 48px;
-  border-bottom: 1px solid #dfe5ee;
-  font-weight: 600;
-}
-.learn-links a span:first-child {
-  font-size: 0.75rem;
-  color: #64738f;
-}
-.learn-links a span:last-child {
-  margin-left: auto;
-}
 .download {
   background: #14234a;
   color: white;
@@ -645,6 +614,37 @@ footer small {
   font-size: 0.7rem;
   color: #64718a;
   margin-left: auto;
+}
+.footer-references {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid #dfe5ee;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.footer-references > span {
+  font-weight: 650;
+}
+.footer-references ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-references a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.footer-references a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .learn-page {
   padding-block: 85px 120px;
@@ -1036,7 +1036,6 @@ dialog p {
   }
   .card-overview,
   .card-choice,
-  .learn-strip,
   .article-cards {
     grid-template-columns: 1fr;
   }
@@ -1054,10 +1053,6 @@ dialog p {
     gap: 16px;
     padding: 22px;
     margin-top: 28px;
-  }
-  .learn-strip {
-    margin-top: 44px;
-    gap: 24px;
   }
   .faq {
     margin-top: 44px;

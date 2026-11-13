@@ -121,6 +121,7 @@ export const copy = {
     ],
     footer: "一张卡，更多可能。",
     sources: "来源与延伸阅读",
+    referencesLabel: "参考资料",
     back: "返回 Learn",
     read: "开始了解",
     home: "首页",
@@ -253,6 +254,7 @@ export const copy = {
     ],
     footer: "One card. More possibilities.",
     sources: "Sources & further reading",
+    referencesLabel: "References",
     back: "Back to Learn",
     read: "Explore",
     home: "Home",
@@ -261,6 +263,15 @@ export const copy = {
     learn: "Learn · Start here",
   },
 };
+export const references = [
+  ["Oracle Java Card", "https://www.oracle.com/java/java-card/"],
+  ["NXP SmartMX3", "https://www.nxp.com/products/SMARTMX3-P71D321"],
+  [
+    "GlobalPlatform",
+    "https://globalplatform.org/specs-library/card-specification/",
+  ],
+  ["Java Card Explorer", "https://java-card-explorer.vercel.app/cards"],
+];
 export const articles = [
   {
     slug: "java-card",

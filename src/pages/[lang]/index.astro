@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import Gallery from "../../components/Gallery.astro";
 import Media from "../../components/Media.astro";
-import { languages, copy, articles, type Language } from "../../data/content";
+import { languages, copy, type Language } from "../../data/content";
 export function getStaticPaths() {
   return languages.map((lang) => ({ params: { lang } }));
 }
@@ -125,21 +125,6 @@ const t = copy[lang];
           <p class="support">{s.detail}</p>
         </article>
       ))}
-    </div>
-    <div class="learn-strip">
-      <div>
-        <h3>{t.learnTitle}</h3>
-        <p>{t.learnIntro}</p>
-      </div>
-      <div class="learn-links">
-        {articles.map((article, i) => (
-          <a href={`/${lang}/learn/${article.slug}/`}>
-            <span>0{i + 1}</span>
-            {article[lang].title}
-            <span aria-hidden="true">↗</span>
-          </a>
-        ))}
-      </div>
     </div>
   </section>
   <section class="download section" id="download">

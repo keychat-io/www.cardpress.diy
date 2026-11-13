@@ -4,6 +4,7 @@ dist/
 .env
 .env.*
 !.env.example
+# Private operational notes and local tool artifacts.
 docs_local/
 test-results/
 playwright-report/

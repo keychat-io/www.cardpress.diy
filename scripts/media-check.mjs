@@ -3,6 +3,10 @@ import assert from "node:assert/strict";
 import { mkdir } from "node:fs/promises";
 
 const base = process.env.PREVIEW_URL || "http://127.0.0.1:4322";
+const expectedRobots =
+  process.env.EXPECTED_INDEXABLE === "true"
+    ? "index,follow"
+    : "noindex,nofollow";
 const browser = await chromium.launch({ channel: "chrome", headless: true });
 const page = await browser.newPage();
 const errors = [];
@@ -65,11 +69,10 @@ try {
       await hero.evaluate((video) => {
         for (const track of video.textTracks) track.mode = "hidden";
       });
-      await page.waitForFunction(
-        () =>
-          [...document.querySelector("#hero-video").textTracks].every(
-            (track) => track.cues?.length > 0,
-          ),
+      await page.waitForFunction(() =>
+        [...document.querySelector("#hero-video").textTracks].every(
+          (track) => track.cues?.length > 0,
+        ),
       );
       assert.deepEqual(
         await hero.evaluate((video) =>
@@ -141,10 +144,10 @@ try {
       );
       assert.equal(
         await page.locator('meta[name="robots"]').getAttribute("content"),
-        "noindex,nofollow",
+        expectedRobots,
       );
       console.log(
-        `PASS ${lang}/${width}: muted autoplay, looping, both caption tracks, screenshot ratios, no overflow, reduced motion and noindex`,
+        `PASS ${lang}/${width}: muted autoplay, looping, both caption tracks, screenshot ratios, no overflow, reduced motion and ${expectedRobots}`,
       );
     }
   }

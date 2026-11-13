@@ -51,8 +51,12 @@ try {
   for (const { expected, ...options } of cases) {
     const { context, page } = await createPage(options);
     try {
-      await page.goto(`${base}/?campaign=language#app`);
-      await page.waitForURL((url) => url.pathname === `/${expected}/`);
+      await page.goto(`${base}/?campaign=language#app`, {
+        waitUntil: "domcontentloaded",
+      });
+      await page.waitForURL((url) => url.pathname === `/${expected}/`, {
+        waitUntil: "domcontentloaded",
+      });
       assert.equal(new URL(page.url()).search, "?campaign=language");
       assert.equal(new URL(page.url()).hash, "#app");
       assert.equal(
@@ -61,7 +65,7 @@ try {
       );
       if (options.blocked) {
         await page.locator(".language").click();
-        await page.waitForURL(`${base}/en/`);
+        await page.waitForURL(`${base}/en/`, { waitUntil: "domcontentloaded" });
       }
     } finally {
       await context.close();
@@ -70,16 +74,22 @@ try {
 
   const { context, page } = await createPage({ locale: "zh-CN" });
   try {
-    await page.goto(`${base}/zh/learn/explore/`);
+    await page.goto(`${base}/zh/learn/explore/`, {
+      waitUntil: "domcontentloaded",
+    });
     await page.locator(".language").click();
-    await page.waitForURL(`${base}/en/learn/explore/`);
+    await page.waitForURL(`${base}/en/learn/explore/`, {
+      waitUntil: "domcontentloaded",
+    });
     assert.equal(
       await page.evaluate(() => localStorage.getItem("cardpress-language")),
       "en",
     );
-    await page.goto(`${base}/`);
-    await page.waitForURL(`${base}/en/`);
-    await page.goto(`${base}/zh/learn/java-card/`);
+    await page.goto(`${base}/`, { waitUntil: "domcontentloaded" });
+    await page.waitForURL(`${base}/en/`, { waitUntil: "domcontentloaded" });
+    await page.goto(`${base}/zh/learn/java-card/`, {
+      waitUntil: "domcontentloaded",
+    });
     assert.equal(new URL(page.url()).pathname, "/zh/learn/java-card/");
     assert.equal(await page.locator("html").getAttribute("lang"), "zh-Hans");
   } finally {
@@ -89,7 +99,7 @@ try {
   const fallback = await browser.newContext({ javaScriptEnabled: false });
   try {
     const page = await fallback.newPage();
-    await page.goto(`${base}/`);
+    await page.goto(`${base}/`, { waitUntil: "domcontentloaded" });
     assert.equal(new URL(page.url()).pathname, "/");
     await page.getByRole("link", { name: "简体中文", exact: true }).click();
     assert.equal(new URL(page.url()).pathname, "/zh/");

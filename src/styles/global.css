@@ -801,40 +801,6 @@ dialog p {
   text-align: center;
   letter-spacing: 0.03em;
 }
-.media-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-.media-actions button {
-  color: var(--ink);
-  border: 1px solid #aebdd4;
-}
-.media-actions .primary {
-  color: white;
-}
-.video-dialog {
-  max-height: 92dvh;
-  overflow-y: auto;
-  width: min(92vw, 620px);
-  padding: 22px;
-}
-.video-dialog video {
-  max-height: 58dvh;
-  width: auto;
-  max-width: 100%;
-  margin-inline: auto;
-  object-fit: contain;
-  background: #14234a;
-}
-.video-dialog p,
-.video-dialog summary {
-  font-size: 0.85rem;
-  line-height: 1.7;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .hero-orbit {
     animation: orbit 3s ease-out 1;
@@ -1078,14 +1044,5 @@ dialog p {
   .real-media > .eyebrow {
     font-size: 0.68rem;
     margin-bottom: 8px;
-  }
-  .media-actions {
-    margin-top: 12px;
-    gap: 8px;
-  }
-  .media-actions .button {
-    font-size: 0.78rem;
-    padding: 10px 13px;
-    min-height: 44px;
   }
 }

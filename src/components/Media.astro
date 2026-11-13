@@ -11,13 +11,14 @@ const t = copy[lang];
       <video
         id="hero-video"
         controls
+        muted
+        loop
         playsinline
-        preload="none"
+        preload="metadata"
         width="720"
         height="1558"
         poster="/media/cardpress-17e-poster.jpg"
         aria-label={t.demoNote}
-        aria-describedby="media-disclosure"
       >
         <source src="/media/cardpress-17e-hero.mp4" type="video/mp4" />
         {(["zh", "en"] as const).map((language) => (
@@ -32,116 +33,20 @@ const t = copy[lang];
       </video>
     </div>
   </div>
-  <div class="media-actions">
-    <button
-      class="button secondary media-toggle"
-      aria-controls="hero-video"
-      data-play={t.playVideo}
-      data-pause={t.pauseVideo}
-      hidden
-    >
-      {t.playVideo}
-    </button>
-    <button class="button primary demo-open" aria-haspopup="dialog" hidden>
-      {t.openDemo} ↗
-    </button>
-  </div>
-  <noscript>
-    <a class="text-link" href="/media/cardpress-17e-demo.mp4">
-      {t.openDemo} ↗
-    </a>
-  </noscript>
-  <figcaption id="media-disclosure">{t.mediaDisclosure}</figcaption>
-  <dialog class="video-dialog" aria-labelledby="demo-title">
-    <form method="dialog">
-      <button class="dialog-close" aria-label={t.close}>
-        {t.close} ×
-      </button>
-    </form>
-    <h3 id="demo-title">{t.demoNote}</h3>
-    <video
-      controls
-      playsinline
-      preload="none"
-      width="720"
-      height="1558"
-      poster="/media/cardpress-17e-poster.jpg"
-      aria-label={t.openDemo}
-      aria-describedby="demo-transcript"
-    >
-      <source src="/media/cardpress-17e-demo.mp4" type="video/mp4" />
-      {(["zh", "en"] as const).map((language) => (
-        <track
-          kind="captions"
-          src={`/media/cardpress-17e-demo.${language}.vtt`}
-          srclang={language}
-          label={language === "zh" ? "简体中文" : "English"}
-          default={language === lang}
-        />
-      ))}
-    </video>
-    <p>{t.mediaDisclosure}</p>
-    <details id="demo-transcript">
-      <summary>{t.transcript}</summary>
-      <p>{t.mediaTranscript}</p>
-    </details>
-  </dialog>
 </figure>
 <script>
-  const media = document.querySelector(".real-media");
-  if (media) {
-    const hero = media.querySelector<HTMLVideoElement>("#hero-video")!;
-    const toggle = media.querySelector<HTMLButtonElement>(".media-toggle")!;
-    const open = media.querySelector<HTMLButtonElement>(".demo-open")!;
-    const dialog = media.querySelector<HTMLDialogElement>("dialog")!;
-    const demo = dialog.querySelector<HTMLVideoElement>("video")!;
-    toggle.hidden = false;
-    open.hidden = false;
-    const updateLabel = () => {
-      toggle.textContent = hero.paused
-        ? toggle.dataset.play!
-        : toggle.dataset.pause!;
-    };
-    hero.addEventListener("play", updateLabel);
-    hero.addEventListener("pause", updateLabel);
-    hero.addEventListener("ended", updateLabel);
-    toggle.addEventListener("click", async () => {
-      if (hero.paused) {
-        try {
-          await hero.play();
-        } catch {
-          updateLabel();
-        }
-      } else hero.pause();
-    });
-    open.addEventListener("click", () => {
-      hero.pause();
-      dialog.showModal();
-    });
-    dialog.addEventListener("close", () => {
-      demo.pause();
-    });
-    dialog.addEventListener("click", (event) => {
-      if (event.target === dialog) {
-        const rect = dialog.getBoundingClientRect();
-        if (
-          event.clientX < rect.left ||
-          event.clientX > rect.right ||
-          event.clientY < rect.top ||
-          event.clientY > rect.bottom
-        )
-          dialog.close();
+  const hero = document.querySelector<HTMLVideoElement>("#hero-video");
+  if (hero) {
+    const motion = matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePlayback = () => {
+      hero.autoplay = !motion.matches;
+      if (motion.matches) hero.pause();
+      else {
+        // Native controls remain available if the browser blocks autoplay.
+        void hero.play().catch(() => {});
       }
-    });
-    // Playback is always user-initiated, including under reduced motion.
-    matchMedia("(prefers-reduced-motion: reduce)").addEventListener(
-      "change",
-      (event) => {
-        if (event.matches) {
-          hero.pause();
-          demo.pause();
-        }
-      },
-    );
+    };
+    updatePlayback();
+    motion.addEventListener("change", updatePlayback);
   }
 </script>

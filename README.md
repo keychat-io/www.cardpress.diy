@@ -45,10 +45,11 @@ from the app repository's `.build/website-media-17e/` directory without modifyin
 
 The locally edited silent H.264 clips are 720 × 1558, 30 fps, yuv420p and faststart:
 `cardpress-17e-hero.mp4` (8.5667 seconds) and `cardpress-17e-demo.mp4` (15.2667 seconds).
-Both provide English and Chinese WebVTT tracks, with the page locale selected by
-default. Playback is user-initiated, with `preload="none"`, native controls and no
-loop or autoplay; the hero also has an accessible play/pause button. Closing the
-expanded dialog pauses its video. Changing to reduced motion pauses playback.
+Both provide English and Chinese WebVTT tracks. The hero clip plays muted in a
+loop, with `preload="metadata"`, native pause controls and the page locale's
+captions selected by default. Reduced motion disables autoplay and pauses playback.
+The separate action buttons, expanded demo dialog and visible editing note have
+been removed; the longer edited clip remains available as a bundled asset.
 The demo shows browsing, Passkey installation confirmation, NFC installation and
 verified Installed status, card capabilities and card styling—not website login.
 Waiting time was shortened; the edited durations are not performance claims.
@@ -67,7 +68,7 @@ operations. The separate AI card-example permission question below remains open.
 Download channels remain placeholders by user instruction.
 
 Run `PREVIEW_URL=http://127.0.0.1:4322 node scripts/media-check.mjs` for focused
-Chrome checks of localized media, aspect ratios, playback, captions, modal closure
+Chrome checks of localized media, aspect ratios, autoplay, looping, captions
 and reduced motion at desktop and narrow widths. Evidence is written to ignored
 `docs_local/media-check/`.
 

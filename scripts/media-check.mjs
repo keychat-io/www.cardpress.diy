@@ -25,111 +25,65 @@ try {
         `${lang}/${width}: page overflow`,
       );
       const hero = page.locator("#hero-video");
-      assert(
-        await hero.evaluate(
-          (video) =>
-            video.paused &&
-            !video.autoplay &&
-            !video.loop &&
-            video.preload === "none",
-        ),
-      );
-      assert.equal(
-        await page.locator(".media-toggle").textContent(),
-        lang === "zh" ? "播放短片 · 约 9 秒" : "Play clip · ~9s",
-      );
-      await page.locator(".media-toggle").focus();
-      await page.keyboard.press("Enter");
       await page.waitForFunction(
         () => document.querySelector("#hero-video").currentTime > 0.1,
-      );
-      assert.equal(
-        await page.locator(".media-toggle").textContent(),
-        lang === "zh" ? "暂停短片" : "Pause short clip",
       );
       assert(
         await hero.evaluate(
           (video) =>
             video instanceof HTMLVideoElement &&
+            video.autoplay &&
+            video.muted &&
+            video.loop &&
+            video.playsInline &&
+            video.controls &&
+            !video.paused &&
             !video.error &&
             video.videoWidth === 720 &&
             video.videoHeight === 1558,
         ),
+      );
+      assert.equal(await page.locator(".real-media video").count(), 1);
+      assert.equal(
+        await page
+          .locator(".media-actions, .video-dialog, #media-disclosure")
+          .count(),
+        0,
       );
       assert.equal(
         await hero.locator("track[default]").getAttribute("srclang"),
         lang,
       );
-      await page.locator(".media-toggle").click();
-      assert(await hero.evaluate((video) => video.paused));
-      await page.locator(".demo-open").click();
-      const dialog = page.locator(".video-dialog");
-      const demo = dialog.locator("video");
-      assert(await hero.evaluate((video) => video.paused));
-      assert(
-        await demo.evaluate(
-          (video) => video.controls && video.paused && !video.autoplay,
-        ),
-      );
-      await demo.evaluate((video) => video.play());
-      await page.waitForFunction(
-        () => document.querySelector(".video-dialog video").currentTime > 0.1,
-      );
-      assert(
-        await demo.evaluate(
-          (video) =>
-            video instanceof HTMLVideoElement &&
-            !video.error &&
-            video.videoWidth === 720 &&
-            video.videoHeight === 1558,
-        ),
-      );
       assert.equal(
-        await demo.locator("track[default]").getAttribute("srclang"),
+        await hero.evaluate(
+          (video) =>
+            [...video.textTracks].find((track) => track.mode === "showing")
+              ?.language,
+        ),
         lang,
       );
-      for (const video of [hero, demo]) {
-        assert.equal(
-          await video.evaluate(
-            (element) =>
-              [...element.textTracks].find((track) => track.mode === "showing")
-                ?.language,
-          ),
-          lang,
-        );
-        await video.evaluate((element) => {
-          for (const track of element.textTracks) track.mode = "hidden";
-        });
-        await page.waitForFunction(
-          (selector) =>
-            [...document.querySelector(selector).textTracks].every(
-              (track) => track.cues?.length > 0,
-            ),
-          video === hero ? "#hero-video" : ".video-dialog video",
-        );
-        assert.deepEqual(
-          await video.evaluate((element) =>
-            [...element.textTracks].map((track) => track.language).sort(),
-          ),
-          ["en", "zh"],
-        );
-      }
-      await page.keyboard.press("Escape");
-      assert.equal(await page.locator(".video-dialog[open]").count(), 0);
+      await hero.evaluate((video) => {
+        for (const track of video.textTracks) track.mode = "hidden";
+      });
       await page.waitForFunction(
-        () => document.querySelector(".video-dialog video").paused,
+        () =>
+          [...document.querySelector("#hero-video").textTracks].every(
+            (track) => track.cues?.length > 0,
+          ),
       );
-      assert(
-        await page
-          .locator(".demo-open")
-          .evaluate((button) => button === document.activeElement),
+      assert.deepEqual(
+        await hero.evaluate((video) =>
+          [...video.textTracks].map((track) => track.language).sort(),
+        ),
+        ["en", "zh"],
       );
-      await page.locator(".demo-open").click();
-      await demo.evaluate((video) => video.play());
-      await dialog.locator(".dialog-close").click();
-      await page.waitForFunction(
-        () => document.querySelector(".video-dialog video").paused,
-      );
+      await hero.evaluate((video) => {
+        video.currentTime = video.duration - 0.2;
+      });
+      await page.waitForFunction(() => {
+        const video = document.querySelector("#hero-video");
+        return !video.paused && video.currentTime < 1;
+      });
       for (let index = 0; index < 3; index++) {
         const button = page.locator(`[data-preview="${index}"]`);
         await button.scrollIntoViewIfNeeded();
@@ -190,12 +144,11 @@ try {
         "noindex,nofollow",
       );
       console.log(
-        `PASS ${lang}/${width}: playback, both caption tracks, modal stop/focus, screenshot ratios, no overflow, reduced motion and noindex`,
+        `PASS ${lang}/${width}: muted autoplay, looping, both caption tracks, screenshot ratios, no overflow, reduced motion and noindex`,
       );
     }
   }
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.locator(".media-toggle").click();
   await page.waitForFunction(
     () => !document.querySelector("#hero-video").paused,
   );

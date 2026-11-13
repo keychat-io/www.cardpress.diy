@@ -15,13 +15,6 @@ export const copy = {
     explore: "看看它能做什么",
     demo: "17e 演示",
     demoNote: "iPhone 17e 实录 · 英文界面",
-    playVideo: "播放短片 · 约 9 秒",
-    pauseVideo: "暂停短片",
-    openDemo: "安装演示 · 约 15 秒",
-    mediaDisclosure: "无声实录，等待过程已剪短；剪辑时长不代表实际操作耗时。",
-    transcript: "演示内容",
-    mediaTranscript:
-      "浏览卡片与 Applet，确认安装 Passkey，通过 NFC 安装并核验 Installed 结果，然后查看卡片能力和选择卡片外观。这是应用安装与管理演示，并非网站登录演示。",
     interfaceLanguage: "iPhone 17e 真实截图 · 英文界面 · 2026-11-13",
     photo: "AI 处理的卡片外观示例，不代表已核实型号或兼容性。",
     photoAlt: "白色智能卡与金色接触芯片的外观示例，经过 AI 处理",
@@ -138,14 +131,6 @@ export const copy = {
     explore: "Explore the possibilities",
     demo: "17e demo",
     demoNote: "Recorded on iPhone 17e · English interface",
-    playVideo: "Play clip · ~9s",
-    pauseVideo: "Pause short clip",
-    openDemo: "Install demo · ~15s",
-    mediaDisclosure:
-      "Silent recording; waiting time shortened. Edited duration is not an operation-speed claim.",
-    transcript: "What the demo shows",
-    mediaTranscript:
-      "Browse cards and applets, confirm Passkey installation, install over NFC and verify the Installed result, then inspect card capabilities and choose a card style. This demonstrates app installation and management, not website sign-in.",
     interfaceLanguage:
       "Real iPhone 17e screenshots · English interface · 2026-11-13",
     photo:

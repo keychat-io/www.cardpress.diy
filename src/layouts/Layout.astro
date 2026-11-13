@@ -72,6 +72,7 @@ const indexable =
       </nav>
       <a
         class="language"
+        data-language={lang === "zh" ? "en" : "zh"}
         href={`/${lang === "zh" ? "en" : "zh"}/${path}`}
         lang={lang === "zh" ? "en" : "zh-Hans"}
         aria-label={lang === "zh" ? "Switch to English" : "切换为简体中文"}
@@ -98,5 +99,20 @@ const indexable =
         </ul>
       </nav>
     </footer>
+    <script>
+      document.querySelectorAll<HTMLAnchorElement>("a[data-language]").forEach(
+        (link) => {
+          link.addEventListener("click", () => {
+            const language = link.dataset.language;
+            if (language !== "zh" && language !== "en") return;
+            try {
+              localStorage.setItem("cardpress-language", language);
+            } catch {
+              // The language link still works without persistent storage.
+            }
+          });
+        },
+      );
+    </script>
   </body>
 </html>

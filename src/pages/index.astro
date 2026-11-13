@@ -7,6 +7,25 @@ import Layout from "../layouts/Layout.astro";
   title="One card. More possibilities."
   description="Choose your language to explore CardPress."
 >
+  <script is:inline>
+    (() => {
+      let language;
+      try {
+        language = localStorage.getItem("cardpress-language");
+      } catch {
+        // Browser language remains available when storage is blocked.
+      }
+      if (language !== "zh" && language !== "en") {
+        const preferences = navigator.languages?.length
+          ? navigator.languages
+          : [navigator.language];
+        language = preferences
+          .map((value) => value.toLowerCase().split("-")[0])
+          .find((value) => value === "zh" || value === "en") || "en";
+      }
+      location.replace(`/${language}/${location.search}${location.hash}`);
+    })();
+  </script>
   <section class="reading">
     <h1>CardPress</h1>
     <p class="lede">
@@ -15,10 +34,10 @@ import Layout from "../layouts/Layout.astro";
       让一张卡，成为你的数字钥匙。
     </p>
     <div class="actions">
-      <a class="button primary" href="/zh/" lang="zh-Hans">
+      <a class="button primary" href="/zh/" lang="zh-Hans" data-language="zh">
         简体中文
       </a>
-      <a class="button secondary" href="/en/" lang="en">
+      <a class="button secondary" href="/en/" lang="en" data-language="en">
         English
       </a>
     </div>

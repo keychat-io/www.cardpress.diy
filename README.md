@@ -18,7 +18,15 @@ npm run verify:config
 npm run preview -- --port 4322
 ```
 
-Open `/zh/` or `/en/`. `/` is a language chooser. Browser acceptance can be repeated
+Open `/` to select a language automatically: an explicit saved choice takes
+priority, followed by the browser's ordered Chinese/English preferences, with
+English as the fallback. Chinese variants currently use the Simplified Chinese
+pages. Explicit `/zh/` and `/en/` URLs keep their language. Manual language
+switches are remembered when local storage is available; without JavaScript,
+the root page offers manual links. Query strings and anchors survive selection.
+Run `npm run verify:language` against the preview to check this behavior.
+
+Browser acceptance can be repeated
 with `node scripts/browser-check.mjs` (requires a locally installed Google Chrome).
 Set `PREVIEW_URL` to test a different running preview. Evidence images are written
 to ignored `docs_local/browser/`. The browser check covers both languages at

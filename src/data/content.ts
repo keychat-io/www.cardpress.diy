@@ -12,7 +12,6 @@ export const copy = {
       "用 CardPress 连接兼容的 Java Card，把安全登录、二步验证与秘密存储，带进日常。",
     ios: "iOS 下载",
     android: "Android 下载",
-    explore: "看看它能做什么",
     demo: "17e 演示",
     demoNote: "iPhone 17e 实录 · 英文界面",
     interfaceLanguage: "iPhone 17e 真实截图 · 英文界面 · 2026-11-13",
@@ -139,7 +138,6 @@ export const copy = {
       "Connect a compatible Java Card with CardPress. Bring secure sign-in, two-step verification and secrets within reach.",
     ios: "Download for iOS",
     android: "Download for Android",
-    explore: "Explore the possibilities",
     demo: "17e demo",
     demoNote: "Recorded on iPhone 17e · English interface",
     interfaceLanguage:

@@ -20,7 +20,6 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 110px;
 }
 body {
   margin: 0;
@@ -222,7 +221,6 @@ a:hover {
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 30px;
-  margin-bottom: 26px;
 }
 .button {
   display: inline-flex;
@@ -931,9 +929,6 @@ dialog p {
   }
 }
 @media (max-width: 680px) {
-  html {
-    scroll-padding-top: 20px;
-  }
   .wrap {
     padding-inline: 22px;
   }

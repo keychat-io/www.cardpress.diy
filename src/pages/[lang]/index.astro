@@ -36,53 +36,11 @@ const t = copy[lang];
     <Media lang={lang} />
     <div class="hero-orbit" aria-hidden="true"></div>
   </section>
-  <section class="section wrap" id="scenarios">
-    <div class="section-heading">
-      <p class="eyebrow">01 / {t.nav[0]}</p>
-      <h2>{t.scenesTitle}</h2>
-      <p>{t.scenesIntro}</p>
-    </div>
-    <div class="scenarios">
-      {t.scenarios.map((s, i) => (
-        <article class={`scenario scene-${i}`}>
-          <div class="scene-art" aria-hidden="true">
-            <span class="scene-symbol">{s.symbol}</span>
-            <span class="scene-token">{s.visual}</span>
-          </div>
-          <h3>{s.title}</h3>
-          <p class="benefit">{s.benefit}</p>
-          <p class="support">{s.detail}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-  <section class="app-section section" id="app">
-    <div class="wrap">
-      <div class="section-heading centered">
-        <p class="eyebrow">02 / {t.nav[1]}</p>
-        <h2>{t.screensTitle}</h2>
-        <p>{t.screensIntro}</p>
-      </div>
-      <Gallery
-        lang={lang}
-        screenshots={[
-          "cards-en.png",
-          "card-detail-en.png",
-          "applets-en.png",
-        ].map((file, index) => ({
-          src: `/media/${file}`,
-          alt: `${t.screens[index]} · ${t.interfaceLanguage}`,
-          width: 1170,
-          height: 2532,
-        }))}
-      />
-    </div>
-  </section>
   <section class="section wrap" id="start">
     <div class="card-overview">
       <div>
         <p class="eyebrow">
-          03 / {lang === "zh" ? "认识卡片" : "Meet the cards"}
+          01 / {lang === "zh" ? "认识卡片" : "Meet the cards"}
         </p>
         <h2>{t.cardsTitle}</h2>
         <p class="card-intro">{t.cardsIntro}</p>
@@ -107,7 +65,6 @@ const t = copy[lang];
             alt={t.photoAlt}
             loading="lazy"
           />
-          <figcaption>{t.photo}</figcaption>
         </figure>
         <div class="card-models">
           <h3>{t.cardModelsTitle}</h3>
@@ -131,6 +88,48 @@ const t = copy[lang];
           {t.cardsMore} <span aria-hidden="true">↗</span>
         </a>
       </div>
+    </div>
+  </section>
+  <section class="app-section section" id="app">
+    <div class="wrap">
+      <div class="section-heading centered">
+        <p class="eyebrow">02 / {t.nav[1]}</p>
+        <h2>{t.screensTitle}</h2>
+        <p>{t.screensIntro}</p>
+      </div>
+      <Gallery
+        lang={lang}
+        screenshots={[
+          "cards-en.png",
+          "card-detail-en.png",
+          "applets-en.png",
+        ].map((file, index) => ({
+          src: `/media/${file}`,
+          alt: `${t.screens[index]} · ${t.interfaceLanguage}`,
+          width: 1170,
+          height: 2532,
+        }))}
+      />
+    </div>
+  </section>
+  <section class="section wrap" id="scenarios">
+    <div class="section-heading">
+      <p class="eyebrow">03 / {t.nav[0]}</p>
+      <h2>{t.scenesTitle}</h2>
+      <p>{t.scenesIntro}</p>
+    </div>
+    <div class="scenarios">
+      {t.scenarios.map((s, i) => (
+        <article class={`scenario scene-${i}`}>
+          <div class="scene-art" aria-hidden="true">
+            <span class="scene-symbol">{s.symbol}</span>
+            <span class="scene-token">{s.visual}</span>
+          </div>
+          <h3>{s.title}</h3>
+          <p class="benefit">{s.benefit}</p>
+          <p class="support">{s.detail}</p>
+        </article>
+      ))}
     </div>
     <div class="learn-strip">
       <div>

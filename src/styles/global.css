@@ -942,6 +942,7 @@ dialog p {
   .header nav {
     order: 3;
     width: 100%;
+    flex-wrap: wrap;
     margin: 0;
     justify-content: space-between;
     gap: 8px;

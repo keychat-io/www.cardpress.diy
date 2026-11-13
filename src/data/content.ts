@@ -16,7 +16,6 @@ export const copy = {
     demo: "17e 演示",
     demoNote: "iPhone 17e 实录 · 英文界面",
     interfaceLanguage: "iPhone 17e 真实截图 · 英文界面 · 2026-11-13",
-    photo: "AI 处理的卡片外观示例，不代表已核实型号或兼容性。",
     photoAlt: "白色智能卡与金色接触芯片的外观示例，经过 AI 处理",
     scenesTitle: "安全芯片，带来更多可能。",
     scenesIntro:
@@ -145,8 +144,6 @@ export const copy = {
     demoNote: "Recorded on iPhone 17e · English interface",
     interfaceLanguage:
       "Real iPhone 17e screenshots · English interface · 2026-11-13",
-    photo:
-      "AI-processed appearance example; not verified model identification or compatibility evidence.",
     photoAlt:
       "AI-processed appearance example of a white smart card with gold contacts",
     scenesTitle: "A secure chip. Everyday possibilities.",
